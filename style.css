@@ -1,27 +1,28 @@
-*{
-    margin:0px;
-    padding:0px;
-    box-sizing: border-box;
-    font-family:sans-serif;
+*{ padding: 0;
+    margin: 0;
 }
+ul{list-style-type: none;}
+body{font-family:Arial, Helvetica, sans-serif;}
 nav{
     width: 100%;
-    height: 75px;
-    background-color: hsl(210, 60%, 33%) ;
-    line-height: 75px;
+    height: 80px;
+    background-color: hsl(211, 25%, 40%) ;
+    line-height: 65px;
     padding:0px 100px;
     position:fixed;
-    z-index: 1;
 }
 nav .logo{
-    font-size: 30px;
+    font-size: 33px;
     font-weight: bold;
     letter-spacing: 1.5px;
 }
 nav .logo p{
     float: left;
-    color: red;
+    color: white;
     text-transform: uppercase;
+}
+.logo{
+    color: rgb(255, 248, 167);
 }
 nav ul {
     float: right;
@@ -34,14 +35,82 @@ nav ul li{
 nav ul li a{
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     text-transform: uppercase;
     padding: 0px 32px;
 } 
 nav ul li a:hover{
-    color: rgb(9, 0, 103);
+    color: rgb(40, 25, 204);
 }
 nav ul li .active{
-    color: rgb(9,0,103)
+    color: rgb(7, 1, 75)
 }
 
+.month {
+    padding: 80px 80px;
+    width: 100%;
+    background: rgb(36, 72, 83);
+    text-align: center;
+}
+.month ul {
+    margin: 20px;
+    padding: 30px;
+}
+.month ul li {
+    color: white;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: rgb(166, 218, 216);
+}
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: rgb(48, 110, 105);
+    text-align: center;
+}
+.days {
+    padding: 20px 0;
+    background: #eee;
+    margin: 0;
+    border: 2px solid grey;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 20px;
+    color: #777;
+    border: 1px solid grey;
+}
+
+footer{
+    height: 10vh;
+    width: 100%;
+    background: rgb(145, 145, 218);
+    color: yellow;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
