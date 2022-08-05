@@ -48,7 +48,6 @@ nav ul li .active{
 
 .month {
     padding: 80px 80px;
-    width: 100%;
     background: rgb(36, 72, 83);
     text-align: center;
 }
@@ -65,11 +64,14 @@ nav ul li .active{
 .prev {
     float: left;
     padding-top: 10px;
+    cursor: pointer;
 }
 .next {
     float: right;
     padding-top: 10px;
+    cursor: pointer;
 }
+
 .weekdays {
     margin: 0;
     padding: 10px 0;
@@ -102,6 +104,7 @@ nav ul li .active{
     font-size: 20px;
     color: #777;
     border: 1px solid grey;
+    cursor: pointer;
 }
 
 footer{
@@ -113,4 +116,5 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
