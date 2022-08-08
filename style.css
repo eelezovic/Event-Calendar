@@ -2,7 +2,7 @@
     margin: 0;
 }
 ul{list-style-type: none;}
-body{font-family:Arial, Helvetica, sans-serif;}
+body{font-family: 'Source Sans Pro', sans-serif;}
 nav{
     width: 100%;
     height: 80px;
@@ -12,7 +12,7 @@ nav{
     position:fixed;
 }
 nav .logo{
-    font-size: 33px;
+    font-size: 30px;
     font-weight: bold;
     letter-spacing: 1.5px;
 }
@@ -22,7 +22,7 @@ nav .logo p{
     text-transform: uppercase;
 }
 .logo{
-    color: rgb(255, 248, 167);
+    color: rgb(253, 243, 100);
 }
 nav ul {
     float: right;
@@ -42,33 +42,36 @@ nav ul li a{
 nav ul li a:hover{
     color: rgb(40, 25, 204);
 }
-nav ul li .active{
-    color: rgb(7, 1, 75)
-}
 
 .month {
     padding: 80px 80px;
     background: rgb(36, 72, 83);
     text-align: center;
 }
-.month ul {
-    margin: 20px;
-    padding: 30px;
-}
+
 .month ul li {
     color: white;
-    font-size: 22px;
+    font-size: 30px;
     text-transform: uppercase;
     letter-spacing: 3px;
 }
+.month ul {
+    margin: 0px;
+    padding: 0px;
+}
 .prev {
-    float: left;
-    padding-top: 10px;
+    position: relative;
+    right: 60px;
+    top: 34px;
     cursor: pointer;
 }
+.prev:hover{
+    color: black;
+}
 .next {
-    float: right;
-    padding-top: 10px;
+    position: relative;
+    left: 60px;
+    bottom: 68px;
     cursor: pointer;
 }
 
@@ -103,16 +106,15 @@ nav ul li .active{
     margin-bottom: 10px;
     font-size: 20px;
     color: #777;
-    border: 1px solid grey;
+    border: 1px solid rgb(179, 179, 179);
     cursor: pointer;
 }
 
 footer{
     height: 40vh;
     width: 100%;
-    background: rgb(145, 145, 218);
-    color: yellow;
-    font-size: 35px;
+    background: rgb(184, 184, 187);
+    font-size: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
