@@ -9,6 +9,7 @@ nav{
     line-height: 65px;
     padding:0px 100px;
     position:fixed;
+    background-color:rgb(36, 72, 83);
 }
 nav .logo{
     font-size: 30px;
