@@ -8,8 +8,8 @@ nav{
     height: 80px;
     line-height: 65px;
     padding:0px 100px;
-    position:fixed;
-    background-color:rgb(36, 72, 83);
+    position:relative;
+    background-color: #395B64;
 }
 nav .logo{
     font-size: 30px;
@@ -40,12 +40,12 @@ nav ul li a{
     padding: 0px 32px;
 } 
 nav ul li a:hover{
-    color: rgb(40, 25, 204);
+    color: #2C3333;
 }
 
 .month {
-    padding: 80px 80px;
-    background: rgb(36, 72, 83);
+    padding: 30px;
+    background: #395B64;
     text-align: center;
 }
 
@@ -66,7 +66,7 @@ nav ul li a:hover{
     cursor: pointer;
 }
 .prev:hover{
-    color:rgb(5, 28, 35);
+    color: #2C3333;
 }
 .next {
     position: relative;
@@ -75,25 +75,25 @@ nav ul li a:hover{
     cursor: pointer;
 }
 .next:hover{
-    color: rgb(5, 28, 35)
+    color: #2C3333;
 }
 
 .weekdays {
-    margin: 0;
+    margin: 3px;
     padding: 10px 0;
     background-color: rgb(166, 218, 216);
 }
 .weekdays li {
     display: inline-block;
     width: 13.6%;
-    color: rgb(48, 110, 105);
+    color: #2C3333;
     text-align: center;
 }
 .days {
     padding: 10px 10px;
-    background: #eee;
+    background-color: #E7F6F2 ;
     margin: 0;
-    border: 2px solid grey;
+    border: 0px solid grey;
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -102,6 +102,8 @@ nav ul li a:hover{
     row-gap: 10px;
 }
 .days li {
+    background-color: white;
+    border-radius: 8%;
     list-style-type: none;
     display: inline-block;
     width: 100%;
@@ -111,6 +113,8 @@ nav ul li a:hover{
     color: #777;
     border: 1px solid rgb(179, 179, 179);
     cursor: pointer;
+    padding-left: 5px;
+    padding-top: 5px;
 }
 
 footer{
