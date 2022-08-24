@@ -15,4 +15,8 @@ const months = [
     "December",
 ];
 
+document.querySelector(".month").innerHTML
+= months [month.getMonth()];
+
 document.querySelector("").innerHTML
+=month.toFateString();
