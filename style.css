@@ -4,7 +4,6 @@
 ul{list-style-type: none;}
 body{font-family: 'Source Sans Pro', sans-serif;}
 nav{
-    width: 100%;
     height: 80px;
     line-height: 65px;
     padding:0px 100px;
@@ -61,18 +60,22 @@ nav ul li a:hover{
 }
 .prev {
     position: relative;
-    right: 60px;
-    top: 34px;
+    left: 612px;
+    top: 31px;
     cursor: pointer;
+    height: 30px;
+    width: 35px;
 }
 .prev:hover{
     color: #2C3333;
 }
 .next {
     position: relative;
-    left: 60px;
+    left: 730px;
     bottom: 68px;
     cursor: pointer;
+    height: 30px;
+    width: 35px;
 }
 .next:hover{
     color: #2C3333;
@@ -85,7 +88,7 @@ nav ul li a:hover{
 }
 .weekdays li {
     display: inline-block;
-    width: 13.6%;
+    width: 14%;
     color: #2C3333;
     text-align: center;
 }
@@ -106,7 +109,6 @@ nav ul li a:hover{
     border-radius: 8%;
     list-style-type: none;
     display: inline-block;
-    width: 100%;
     text-align: left;
     margin-bottom: 10px;
     font-size: 20px;
@@ -118,7 +120,7 @@ nav ul li a:hover{
 }
 
 footer{
-    height: 40vh;
+    height: 20vh;
     width: 100%;
     background: rgb(184, 184, 187);
     font-size: 50px;
