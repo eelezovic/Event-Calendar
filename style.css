@@ -43,43 +43,53 @@ nav ul li a:hover{
 }
 
 .month {
-    padding: 30px;
+
     background: #395B64;
+    color: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
     text-align: center;
+
 }
 
-.month ul li {
-    color: white;
-    font-size: 30px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-.month ul {
-    margin: 0px;
-    padding: 0px;
-}
-.prev {
-    position: relative;
-    left: 612px;
-    top: 31px;
+.month i {
+    font-size: 1.6rem;
     cursor: pointer;
-    height: 30px;
-    width: 35px;
+
 }
+
+.month h1 {
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.month p {
+    font-size: 1.4rem;
+}
+
 .prev:hover{
     color: #2C3333;
 }
-.next {
+.prev{
     position: relative;
-    left: 730px;
-    bottom: 68px;
-    cursor: pointer;
-    height: 30px;
-    width: 35px;
+    left: 600px;
+    bottom: 20px;
 }
 .next:hover{
     color: #2C3333;
 }
+.next{ 
+    position: relative;
+    right: 600px;
+    bottom: 20px;
+    }
+
+
 
 .weekdays {
     margin: 3px;
@@ -99,8 +109,8 @@ nav ul li a:hover{
     border: 0px solid grey;
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     column-gap: 10px;
     row-gap: 10px;
 }
