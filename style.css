@@ -92,7 +92,7 @@ nav ul li a:hover{
 
 
 .weekdays {
-    margin: 3px;
+    margin: 0;
     padding: 10px 0;
     background-color: rgb(166, 218, 216);
 }
@@ -114,7 +114,7 @@ nav ul li a:hover{
     column-gap: 10px;
     row-gap: 10px;
 }
-.days li {
+.days div {
     background-color: white;
     border-radius: 8%;
     list-style-type: none;
@@ -129,10 +129,24 @@ nav ul li a:hover{
     padding-top: 5px;
 }
 
+.active{
+    padding: 3px;
+    background-color: rgb(166, 218, 216);
+
+    border-radius: 20px;
+}
+
+.prev-date{
+    opacity: 0.5;
+}
+.next-date {
+    opacity: 0.5;
+}
+
 footer{
     height: 20vh;
     width: 100%;
-    background: rgb(184, 184, 187);
+    background: #2B4865;
     font-size: 50px;
     display: flex;
     align-items: center;
