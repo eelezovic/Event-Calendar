@@ -153,3 +153,16 @@ footer{
     justify-content: center;
     cursor: pointer;
 }
+
+.hold{
+    border: solid purple 2px;
+}
+
+.hovered {
+    background: green;
+    border-style: dashed;
+}
+
+.invisible {
+    display: none;
+}
