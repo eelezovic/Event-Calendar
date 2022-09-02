@@ -1,43 +1,54 @@
-// Drag and Drop
-// Creating drag and drop options for the icons (fill= calendar icons, empties= days)
-const fill = document.querySelectorAll(".icons");
-const empties = document.querySelectorAll(".days");
+const item = document.querySelector('.item');
 
-// Callendar Icons "Fill"
-fill.addEventListener("dragstart", dragStart);
-fill.addEventListener("dragend", dragEnd);
+item.addEventListener('dragstart', dragStart);
 
-//Loop throught "emoty" days and call drag events
-for(const days of empties) {
-    days.addEventListener("dragenter", dragEnter);
-    days.addEventListener("dragenter", dragEnter);
-    days.addEventListener("dragleave", dragLeave);
-    days.addEventListener("drop", dragDrop);
-}
-// Drag Functions
-function dragStart(events) {
-    this.className += "hold";
-    setTimeout(() => (this.className = "hide"), 0);
-}
-function dragEnd(events) {
-    this.className = "fill";
-
-}
-function dragEnter(events) {
-    events.preventDefault();
-}
-function dragOver(events) {
-    events.preventDefault();
-    this.className += "hovered"
-}
-function dragLeave(events) {
-    this.className = "days";
-}
-function dragDrop(events) {
-    this.className = "days";
-    this.append(fill);
+function dragStart(e) {
+    e.dataTransfer.setData('text/plain', e.target.id);
+    setTimeout(() => {
+        e.target.classList.add('hide');
+    }, 0);
 }
 
+
+
+/* drop targets */
+const boxes = document.querySelectorAll('.box');
+
+boxes.forEach(box => {
+    box.addEventListener('dragenter', dragEnter)
+    box.addEventListener('dragover', dragOver);
+    box.addEventListener('dragleave', dragLeave);
+    box.addEventListener('drop', drop);
+});
+
+
+function dragEnter(e) {
+    e.preventDefault();
+    e.target.classList.add('drag-over');
+}
+
+function dragOver(e) {
+    e.preventDefault();
+    e.target.classList.add('drag-over');
+}
+
+function dragLeave(e) {
+    e.target.classList.remove('drag-over');
+}
+
+function drop(e) {
+    e.target.classList.remove('drag-over');
+
+    // get the draggable element
+    const id = e.dataTransfer.getData('text/plain');
+    const draggable = document.getElementById(id);
+
+    // adding it to the drop target
+    e.target.appendChild(item);
+
+    // displays the draggable element
+    draggable.classList.remove('hide');
+}
 
 
 // Setting current date 
