@@ -1,3 +1,5 @@
+" use strict"
+
 const item = document.querySelector('.item');
 
 item.addEventListener('dragstart', dragStart);
@@ -8,10 +10,7 @@ function dragStart(e) {
         e.target.classList.add('hide');
     }, 0);
 }
-
-
-
-/* drop targets */
+//drop targets 
 const boxes = document.querySelectorAll('.box');
 
 boxes.forEach(box => {
@@ -20,7 +19,6 @@ boxes.forEach(box => {
     box.addEventListener('dragleave', dragLeave);
     box.addEventListener('drop', drop);
 });
-
 
 function dragEnter(e) {
     e.preventDefault();
@@ -44,20 +42,24 @@ function drop(e) {
     const draggable = document.getElementById(id);
 
     // adding it to the drop target
-    e.target.appendChild(item);
+    e.target.appendChild(draggable);
 
     // displays the draggable element
     draggable.classList.remove('hide');
-}
+} 
 
 
 // Setting current date 
-const date = new Date();
-//current day and month
-const month = date.getMonth();
-const months  = [
+const month = document.getElementById("month");
+const calendar = document.getElementById("calendar");
+
+const DATE = new Date();
+
+let thisMonth = DATE.getMonth();
+let year = DATE.getFullYear();
+const MONTHS  = [
    "January",
-   "February",
+   "February",  
    "March",
    "April",
    "May",
@@ -70,9 +72,56 @@ const months  = [
    "December",
    ];
 
-document.querySelector(".date h1").innerHTML
-= months [date.getMonth()];
+   const createCalendar = () => {
+    month.innerHTML = `${MONTHS[thisMonth]}, ${year}`
+    const dayOne = new Date(year, thisMonth).getDay();
+    console.log(dayOne)
+    const monthDays = 32 - new Date(year, thisMonth,32).getDate()
+date = 1;
+    for (let i = 0; i < 6;  i++) {
+        let row = document.createElement("tr");
+        for (let j = 0; j < 7; j++ ){
+            let column = document.createElement("td"); 
+            if(date > monthDays) break;
+            else if (i = 0 && j < dayOne) {
+                let columnText = document.createTextNode("");
+                column.appendChild(columnText)
+                row.appendChild(column)
+            }
+            else {
+                let columnText = document.createTextNode(date);
+                column.appendChild(columnText)
+                row.appendChild(column)
 
-document.querySelector(".date p").innerHTML
-= date.toDateString();
+                date++
+            }
+        }
+        calendar.appendChild(row)
+    }
+};
+createCalendar();
+
+    const nextMonth = () => {
+        thisMonth = thisMonth + 1;
+        calendar.innerHTML = ""; 
+        if(thisMonth > 11){
+            year = year + 1;
+            thisMonth = 0;
+    };
+
+createCalendar();
+return thisMonth;
+};
+
+const prevMonth = () => {
+    thisMonth = thisMonth - 1;
+    calendar.innerHTML = ""; 
+    if(thisMonth < 0){
+        year = year - 1;
+        thisMonth = 11;
+    };
+createCalendar();
+return thisMonth;
+};
+
 

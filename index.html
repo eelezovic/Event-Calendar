@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang=""eng">
+<html lang="eng">
 <head>
 <meta charset="utf-8/>"
-<meta name="viewport" content="width=device-width, inital-scale=".0">
-<title>Work Shift Schedule</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<title>Shift Calendar</title>
+
 <script src="https://kit.fontawesome.com/6f4e1ce862.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -11,78 +12,77 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav> 
-<div class="logo"
-  <p>Shift Work Calendar</p>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="#">Share</a></li>
-  </ul>
+  <nav> 
+    <div class="logo"
+      <p>Shift Calendar</p>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Share</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="month">
+    <button onclick="prevMonth()" class="fas fa-angle-left prev"></button>
+    <div class="date">
+      <h1 id="currentmonth">October, 2022</h1>
+    </div>
+    <button onclick="nextMonth()" class="fas fa-angle-right next"></button>
   </div>
-</nav>
-<div class="month">
- <i class="fas fa-angle-left prev"></i>
- <div class="date">
-  <h1>July</h1>
-  <p>Tue July 10, 2022</p>
- </div>
- <i class="fas fa-angle-right next"></i>
-</div>
-
-
-<ul class="weekdays">
-  <li>Mon</li>
-  <li>Tue</li>
-  <li>Wed</li>
-  <li>Thu</li>
-  <li>Fri</li>
-  <li>Sat</li>
-  <li>Sun</li>
-</ul>
-
-<div class ="days">
-  <div class="prev-date">30</div>
-  <div class="box">1</div>
-  <div class="box">2</div>
-  <div class="box">3</div>
-  <div class="box">4</div>
-  <div class="box">5</div>
-  <div class="box">7</div>
-  <div class="box">8</div>
-  <div class="box">9</div>
-  <div class="box"><span class="active">10</span></div>
-  <div class="box">11</div>
-  <div class="box">12</div>
-  <div class="box">13</div>
-  <div class="box">14</div>
-  <div class="box">15</div>
-  <div class="box">16</div>
-  <div class="box">17</div>
-  <div class="box">18</div>
-  <div class="box">19</div>
-  <div class="box">20</div>
-  <div class="box">21</div>
-  <div class="box">22</div>
-  <div class="box">23</div>
-  <div class="box">24</div>
-  <div class="box">25</div>
-  <div class="box">26</div>
-  <div class="box">27</div>
-  <div class="box">28</div>
-  <div class="box">29</div>
-  <div class="box">30</div>
-  <div class="box">31</div>
-  <div class="next-date">1</div>
-  <div class="next-date">2</div>
-  <div class="next-date">3</div>
-</div>
-
-<footer>
- <div class="item" id="item" draggable="true">
-    <i class="fa-solid fa-sun draggable" style="color:#ffdb0c; ></i>
-    <i class="fa-solid fa-sunset draggable" style="color: #f68f20;" draggable="true"></i>></i>
+  
+  
+  <ul class="weekdays">
+    <li>Sun</li>
+    <li>Mon</li>
+    <li>Tue</li>
+    <li>Wed</li>
+    <li>Thu</li>
+    <li>Fri</li>
+    <li>Sat</li>
+  </ul>
+  
+  <div class ="days">
+    <div class ="prev-date">30</div>
+    <div class ="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div clas="box">4</div>
+    <div class="box">5</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box"><span class="active">10</span></div>
+    <div class="box">11</div>
+    <div class="box">12</div>
+    <div class="box">13</div>
+    <div class="box">14</div>
+    <div class="box">15</div>
+    <div class="box">16</div>
+    <div class="box">17</div>
+    <div class="box">18</div>
+    <div class="box">19</div>
+    <div class="box">20</div>
+    <div class="box">21</div>
+    <div class="box">22</div>
+    <div class="box">23</div>
+    <div class="box">24</div>
+    <div class="box">25</div>
+    <div class="box">26</div>
+    <div class="box">27</div>
+    <div class="box">28</div>
+    <div class="box">29</div>
+    <div class="box">30</div>
+    <div class="box">31</div>
+    <div class="next-date">1</div>
+    <div class="next-date">2</div>
+    <div class="next-date">3</div>
+  </div>
+  
+  <footer>
+  <div class="item" id="item" draggable="true">
+    <i class="fa-solid fa-sun draggable" style="color:#ffdb0c;" ></i>
+    <i class="fa-solid fa-cloud-moon" style="color: #f68f20;" draggable="true"></i>
     <i class="fa-solid fa-moon draggable" style="color: #141852;" draggable="true"></i>
     <i class="fa-solid fa-palm draggable" style="color: green;"draggable="true"></i>
     <i class="fa-solid fa-dollar draggable" style="color:#4b9620;"draggable="true"></i>
@@ -97,4 +97,4 @@
 
 <script src="script.js"></script>
 </body>
-</html
+</html>

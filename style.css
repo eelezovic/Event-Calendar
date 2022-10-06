@@ -75,18 +75,21 @@ nav ul li a:hover{
 .prev:hover{
     color: #2C3333;
 }
+
 .prev{
     position: relative;
-    left: 550px;
-    bottom: 20px;
+    left: 520px;
+    bottom: 8px;
+    font-size: 1.4rem;
 }
 .next:hover{
     color: #2C3333;
 }
 .next{ 
     position: relative;
-    right: 550px;
-    bottom: 20px;
+    right: 520px;
+    bottom: 8px;
+    font-size: 1.4rem;
     }
 
 
@@ -156,4 +159,12 @@ footer{
 
 .hide {
     display: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    margin: 0 10px;
+    cursor: pointer;
 }
