@@ -1,0 +1,17 @@
+
+const file = {
+	title: 'Example File Title',
+    author: 'John Smith',
+    created_date: 'JS Date Object',
+    text: 'example text'
+}
+
+const copyFile = (a) =>{
+    a.title = "Copy of " + a.title;
+    a.created_date= new Date();
+    return a;
+}
+
+console.log(copyFile(file));
+
+

@@ -3,83 +3,81 @@
 <head>
 <meta charset="utf-8/>"
 <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-<title>Shift Calendar</title>
-
+<title>Work Calendar</title>
 <script src="https://kit.fontawesome.com/6f4e1ce862.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@1,700;1,900&family=Mouse+Memoirs&family=Source+Sans+Pro:ital,wght@1,200;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css"></link>
 </head>
 <body>
-  <nav> 
-    <div class="logo"
-      <p>Shift Calendar</p>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="#">Share</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div class="month">
+
+    <nav> 
+        <div class="logo"
+          <p>Work Calendar</p>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Share</a></li>
+          </ul>
+        </div>
+      </nav>
+<div class="month">
     <button onclick="prevMonth()" class="fas fa-angle-left prev"></button>
-    <div class="date">
-      <h1 id="currentmonth">October, 2022</h1>
-    </div>
+    <h1 id="current-month"></h1>
+    <h1 id="current-year"></h1>
     <button onclick="nextMonth()" class="fas fa-angle-right next"></button>
-  </div>
-  
-  
-  <ul class="weekdays">
-    <li>Sun</li>
-    <li>Mon</li>
-    <li>Tue</li>
-    <li>Wed</li>
-    <li>Thu</li>
-    <li>Fri</li>
-    <li>Sat</li>
-  </ul>
-  
-  <div class ="days">
-    <div class ="prev-date">30</div>
-    <div class ="box">1</div>
-    <div class="box">2</div>
-    <div class="box">3</div>
-    <div clas="box">4</div>
-    <div class="box">5</div>
-    <div class="box">7</div>
-    <div class="box">8</div>
-    <div class="box">9</div>
-    <div class="box"><span class="active">10</span></div>
-    <div class="box">11</div>
-    <div class="box">12</div>
-    <div class="box">13</div>
-    <div class="box">14</div>
-    <div class="box">15</div>
-    <div class="box">16</div>
-    <div class="box">17</div>
-    <div class="box">18</div>
-    <div class="box">19</div>
-    <div class="box">20</div>
-    <div class="box">21</div>
-    <div class="box">22</div>
-    <div class="box">23</div>
-    <div class="box">24</div>
-    <div class="box">25</div>
-    <div class="box">26</div>
-    <div class="box">27</div>
-    <div class="box">28</div>
-    <div class="box">29</div>
-    <div class="box">30</div>
-    <div class="box">31</div>
-    <div class="next-date">1</div>
-    <div class="next-date">2</div>
-    <div class="next-date">3</div>
-  </div>
-  
-  <footer>
+</div>
+<div class="containter">
+<table>
+    <thead>
+        <tr id="weekdays">
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        </tr>
+    </thead>
+    <tbody id="calendar-days"></tbody>
+</table>
+<div>
+    <form class="select-date">
+      <label for="month">Go To:</label>
+        <select name="month" id="select-month">
+          <option value=0>January</option>
+          <option value=1>February</option>
+          <option value=2>March</option>
+          <option value=3>April</option>
+          <option value=4>May</option>
+          <option value=5>Jun</option>
+          <option value=6>July</option>
+          <option value=7>August</option>
+          <option value=8>September</option>
+          <option value=9>October</option>
+          <option value=10>November</option>
+          <option value=11>December</option>
+        </select>
+    <input type="number" min="1" id="year">
+    </form>
+    <div class="event-container">
+      <div class="events visible">
+        <span class="no-Events event-message">There are no events today</span>
+        <button class="show-event-form rotate">Add New Event</button>
+      </div>
+      <form class="new-event-form hidden">
+        <legend> Submit New Event</legend>
+        <input id="new-event-desc" type="text" name="desc" placeholder="desc">
+        <input type="sumbit" class="submit-event rotate" value="Submit">
+      </form>
+    </div>
+</div>
+</div>
+
+<footer>
   <div class="item" id="item" draggable="true">
     <i class="fa-solid fa-sun draggable" style="color:#ffdb0c;" ></i>
     <i class="fa-solid fa-cloud-moon" style="color: #f68f20;" draggable="true"></i>
