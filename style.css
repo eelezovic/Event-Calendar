@@ -174,7 +174,7 @@ footer{
 
 /*Events*/
 
-.event-container{
+.event-container {
     background: linear-gradient(to bottom left, #f2fcef, #eff7f1);
     border-left:none;
     display: flex;
@@ -183,9 +183,7 @@ footer{
     border: 2px solid black;
     overflow:hidden;
     overflow-y: auto
-    margin:0;
 }
-
 .events{
     height: 100%;
     display: flex;
@@ -305,7 +303,7 @@ footer{
     outline: solid rgb(109, 177, 202);
 }
 
-#new-event-desc: :focus{
+#new-event-desc :focus{
     width: 60%;
 }
 
