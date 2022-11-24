@@ -10,7 +10,7 @@ nav{
     position:relative;
     background-color: #395B64;
 }
-nav .logo{
+nav .logo{ 
     font-size: 30px;
     font-weight: bold;
     letter-spacing: 1.5px;
@@ -143,10 +143,7 @@ footer{
     justify-content: center;
     cursor: pointer;
 }
-.today{
-    background-color: rgb(199, 228, 234);
-    color: grey;
-}
+
 
 /* Select Date */
 
@@ -236,9 +233,12 @@ footer{
     background: #dd9756;
 }
 
-.active {
-    background: blue;
-}
+
+.active{
+        background-color: rgb(199, 228, 234);
+        color: grey;
+    }
+
 
 .active-event {
     background: pink;
