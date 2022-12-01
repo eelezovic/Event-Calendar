@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="style.css"></link>
 </head>
 <body>
-
     <nav> 
         <div class="logo"
           <p>Work Calendar</p>
@@ -22,14 +21,14 @@
             <li><a href="#">Share</a></li>
           </ul>
         </div>
-      </nav>
+    </nav>
 <div class="month">
-    <button onclick="prevMonth()" class="fas fa-angle-left prev"></button>
-    <h1 id="current-month"></h1>
-    <h1 id="current-year"></h1>
-    <button onclick="nextMonth()" class="fas fa-angle-right next"></button>
+    <button onclick="prevMonth()" class="fas fa-angle-left prev-month"></button>
+    <h1 id="header-month"></h1>
+    <h1 id="header-year"></h1>
+    <button onclick="nextMonth()" class="fas fa-angle-right next-month"></button>
 </div>
-<div class="containter">
+<div class="calendar">
 <table>
     <thead>
         <tr id="weekdays">

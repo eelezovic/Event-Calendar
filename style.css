@@ -56,9 +56,15 @@ th {
     font-size: 1rem;
     color:white;
     height: 13vh;
+}
 
-
-
+.calendar{
+    align-self: center;
+    display: flex;
+    border: 2px solid purple;
+    min-height: 425px;
+    flex-direction: row;
+    align-items: center;
 }
 
 tbody { margin: 0;
@@ -97,7 +103,7 @@ button {
     cursor: pointer;
 }
 
-.prev{
+.prev-month{
     
     font-size: 1.4rem;
     color: white;
@@ -105,18 +111,18 @@ button {
     right: 128px;
 }
 
-.prev:hover{
+.prev-month:hover{
     color:#2C3333 ;
 }
 
-.next {
+.next-month {
     font-size: 1.4rem;
     color: white;
     bottom: 37px;
     left: 125px;
 }
 
-.next:hover{
+.next-month:hover{
     color: #2C3333;
 }
 
@@ -130,11 +136,12 @@ table{
     border: 1px solid rgb(105, 156, 154);
     height: 100px;
     width: 60%;
+    border-spacing: 0;
 
 }
 
 footer{
-    height: 10vh;
+    height: 15vh;
     width: 100%;
     background: #2B4865;
     font-size: 35px;
@@ -148,9 +155,18 @@ footer{
 /* Select Date */
 
 .select-date{
-    margin-left: 100px;
-    padding: 5px 0 5px 205px;
+    
+    border-right: none;
+    border-bottom: 1px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     color: #2C3333;
+}
+
+#month {
+    margin-right:40px;
 }
 
 #year {
@@ -163,23 +179,31 @@ footer{
     border: 1px solid #395B64;
 }
 
+
 #select-month{
     color: #395B64;
     border: 1px solid #395B64;
     background: #E7F6F2;
 }
 
+.select-date label{
+    margin-left: 40px;
+    align-self: center;
+}
+
 /*Events*/
 
 .event-container {
     background: linear-gradient(to bottom left, #f2fcef, #eff7f1);
-    border-left:none;
     display: flex;
-    width:280px;
+    width: 400px;
     height: 425px;
+    margin-left: 0;
+    margin-right: 40px;
+    padding-top: 80px;
     border: 2px solid black;
     overflow:hidden;
-    overflow-y: auto
+    overflow-y: auto;
 }
 .events{
     height: 100%;
@@ -235,8 +259,7 @@ footer{
 
 
 .active{
-        background-color: rgb(199, 228, 234);
-        color: grey;
+    background-color: rgb(199, 228, 234);
     }
 
 
