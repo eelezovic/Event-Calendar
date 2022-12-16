@@ -46,4 +46,4 @@ function drop(e) {
 
     // displays the draggable element
     draggable.classList.remove('hide');
-} 
+}
