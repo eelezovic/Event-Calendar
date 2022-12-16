@@ -1,5 +1,14 @@
 //calendar
-const currentDate = new Date();
+const headerMonthDocumentElement = document.getElementById("header-month");
+const headerYearDocumentElement = document.getElementById("header-year");
+const calendarDaysDocumentElement = document.getElementById("calendar-days");
+const nextMonthDocumentElement = document.getElementById('next-month');
+const previousMonthDocumentElement = document.getElementById('prev-month');
+const selectYearDocumentElement = document.getElementById('year');
+const selectMonthDocumentElement = document.getElementById('month');
+const todayBtn = document.querySelector(".today-btn");
+
+let currentDate = new Date();
 let currentMonth = currentDate.getMonth();
 let currentYear = currentDate.getFullYear();
 const MONTHS  = [
@@ -23,21 +32,14 @@ const MONTHS  = [
         {
             "descritpion": "es",
             "year": "2022",
-            "month": "November",
+            "month": "December",
             "day": "11"
         
         }
     ]
    };
 
-   const headerMonthDocumentElement = document.getElementById("header-month");
-   const headerYearDocumentElement = document.getElementById("header-year");
-   const calendarDaysDocumentElement = document.getElementById("calendar-days");
-   let nextMonthDocumentElement = document.getElementById('next-month');
-   let previousMonthDocumentElement = document.getElementById('prev-month');
-   let selectYearDocumentElement = document.getElementById('year');
-   let selectMonthDocumentElement = document.getElementById('month');
-
+// Select any month and year on the calendar
    selectYearDocumentElement.value = currentYear;
    selectMonthDocumentElement.value = currentMonth;
 
@@ -51,12 +53,15 @@ const MONTHS  = [
    })
    selectMonthDocumentElement.addEventListener("change", skipToSelectedMonthAndYear);
 
-
+// Function to add days
 const createCalendar = () => {
     headerMonthDocumentElement.innerHTML = `${MONTHS[currentMonth]}, ${currentYear}`
     const firstDayOfMonth = new Date(currentYear, currentMonth,1).getDay();
+    const lastDayOfMonth = new Date (currentYear, currentMonth +1, 0);
     const numberOfDaysinMonth =  32 - new Date(currentYear, currentMonth, 32).getDate();
     const lastDayOfPrevMonth = new Date(currentYear, currentMonth,0).getDate();
+    console.log(lastDayOfPrevMonth)
+
 
     //Cleaning all previous cells
     calendarDaysDocumentElement.innerHTML = "";
@@ -101,6 +106,7 @@ const daysInNextMonth = () => {
 //creating all cells
 let date = 1;
 
+
     for (let i = 0; i < 6;  i++) {
         //creates a table row
         let row = document.createElement("tr");
@@ -120,6 +126,7 @@ let date = 1;
                 if( date ===currentDate.getDate() && currentMonth === currentDate.getMonth() && currentYear === currentDate.getFullYear()){
                     column.classList.add("active"); // colour today's date
                 }
+            else { lastDayOfPrevMonth }
             column.classList.add('day');
             column.appendChild(columnText);
             row.appendChild(column);
@@ -127,8 +134,10 @@ let date = 1;
             }
         }
         calendarDaysDocumentElement.appendChild(row); //appending each row into calendar body.
-    }
+        showEvents();
+}
 };
+
 createCalendar();
 
 
@@ -160,8 +169,18 @@ function skipToSelectedMonthAndYear() {
     currentMonth = parseInt(selectMonthDocumentElement.value);
     createCalendar(currentMonth, currentYear);
     showEvents();
-}
+};
 
+//Adding Today's button functionality
+
+todayBtn.addEventListener("click", () => {
+     currentDate = new Date();
+     currentMonth = currentDate.getMonth();
+     currentYear = currentDate.getFullYear();
+     selectYearDocumentElement.value = currentYear;
+     selectMonthDocumentElement.value = currentMonth;
+     createCalendar();
+});
 
 //Events
 document.addEventListener("click", function(e) {
@@ -178,6 +197,9 @@ document.addEventListener("click", function(e) {
         e.target.classList.add("active");
     }
 });
+
+
+
 
 // Handles New Event Form //
 let newEvent = {
@@ -205,7 +227,7 @@ let newEvent = {
 };
 
 const hideShowEventsDiv = () => {
-    let eventsDiv = document.querySelector (".events");
+    let eventsDiv = document.querySelector(".events");
     let newEventForm = document.querySelector(".new-event-form");
     let saveEventButton = document.querySelector(".sumbit-event");
     let showEventForm = document.querySelector(".show-event-form");
@@ -216,9 +238,9 @@ const hideShowEventsDiv = () => {
         newEventForm.classList.remove("visible");
         eventsDiv.classList.remove("hidden");
         eventsDiv.classList.add("visible");
-        createCalendar();
+        showEvents();
         // Change rotate class for Event listener
-        saveEventButton.classList.remove("rotate");
+        
         showEventForm.classList.add("rotate");
     } else {
         //Show new Event form
@@ -227,7 +249,7 @@ const hideShowEventsDiv = () => {
         newEventForm.classList.remove("hidden");
         newEventForm.classList.add("visible");
         showEventForm.classList.remove("rotate");
-        saveEventButton.classList.add("rotate");
+        
     }
 }
 
@@ -235,7 +257,7 @@ const hideShowEventsDiv = () => {
 document.addEventListener("click", (e) => {
     e.preventDefault();
     if (e.target.classList.contains("rotate") && e.target.classList.contains("submit-event")){
-        newEvent.sumbit();
+        newEvent.sumbit()
     } else if (e.target.classList.contains("rotate")) {
         hideShowEventsDiv();
     }
@@ -257,7 +279,7 @@ function showEvents () {
 }
 
 //Clear previous event text
-function clearEventText () {
+function cleareventText () {
     if (document.getElementsByClassName("event-desc")) {
         [...document.getElementsByClassName("event-desc")].forEach((event) => {
             event.outerHTML = "";
@@ -272,7 +294,7 @@ function showEventText(desc) {
     
         //Span elent to put Event text into
         const span = document.createElement("span");
-        let EventText = document.createTextNode(desc); //Should it be Camel cased?
+        let eventText = document.createTextNode(desc); //Should it be Camel cased?
 
         //delete button for span
         const remove = document.createElement("div");
@@ -285,7 +307,7 @@ function showEventText(desc) {
         noEvents.style.display = "none";
 
         //Append to container
-        span.appendChild(EventText)
+        span.appendChild(eventText)
         span.appendChild(remove);
         span.classList.add("event-desc", "event-message");
         eventsDescContainer.appendChild(span);
@@ -303,7 +325,7 @@ document.addEventListener('click', (e)=> {
 
     if(e.target.classList.contains('day')){
         //Clear previous event Text
-        clearEventText();
+        cleareventText();
 
         if(eventData.events.length===0){
             noEvents.style.display='initial';
@@ -316,9 +338,9 @@ document.addEventListener('click', (e)=> {
                     showEventText(event['description']);
     
                 }  else if(!checkEvents('year',headerYearDocumentElement.innerHTML) || !checkEvents('month', headerMonthDocumentElement.innerHTML) || !checkEvents('day', e.target.innerHTML))  {
-                    clearEventText();
+                    cleareventText();
                     noEvents.style.display='initial';
-                    noEvents.innerHTML = `There are no events on ${headerMonthDocumentElement.innerHTML} ${e.target.innerHTML} ${headerYearDocumentElement.innerHTML}`;
+                    noEvents.innerHTML = `There are no events on ${headerMonthDocumentElement.innerHTML}, ${e.target.innerHTML}  ${headerYearDocumentElement.innerHTML}`;
                 }
             });
         }
@@ -326,33 +348,33 @@ document.addEventListener('click', (e)=> {
 });
 
 //Click on X to remove event
-document.addEventListener("click",(x) =>{
-    //Day clicked on
-    let day = document.getElementsByClassName("active")[0];
-    let noEvents = document.getElementsByClassName("no-Events")[0];
+document.addEventListener('click', (x)=>{
+    //day clicked on
+    let day = document.getElementsByClassName('active')[0];
+    let noEvents = document.getElementsByClassName('no-Events')[0];
 
-    if(x.target.classList.contains("remove")){
+    if(x.target.classList.contains('remove')){
         let eventText = x.target.parentNode.textContent.slice(0,-1);
 
-        for(const i = eventData.events.length-1; i >=0; --i) {
-            if(eventData.events[i] ["day"] === day.innerHTML && eventData.events[i]["month"] === headerMonthDocumentElement.innerHTML && eventData.events[i] ["year"] ===headerYearDocumentElement.innerHTML && eventData.events[i]["descritpion"] === eventText) {
+for(const i = eventData.events.length-1; i >= 0; --i) {
+            if(eventData.events[i]['day']===day.innerHTML && eventData.events[i]['month']===headerMonthDocumentElement.innerHTML && eventData.events[i]['year']===headerYearDocumentElement.innerHTML && eventData.events[i]['description']===eventText){
                 eventData.events.splice(i,1);
-                //Remove event clicked on from view
-                x.target.parentNode.classList.add("swingHide");
-                setInterval(() => {
-                    x.target.parentNode.outerHTML = '';
-                }, 500);
-                //If no events on day selected show message
-                if(!checkEvents( "year", headerYearDocumentElement.innerHTML) || !checkEvents("month", headerMonthDocumentElement.innerHTML) || !checkEvents ("day", day.innerHTML)) {
-                    setTimeout(() => {
-                        noEvents.style.display = "initial";
-                    }, 600)
+                //remove event clicked on from view
+                x.target.parentNode.classList.add('swingHide');
+                setInterval(()=>{
+                    x.target.parentNode.outerHTML='';
+                },500);
+                //if no events on day selected show message
+                if(!checkEvents('year',headerYearDocumentElement.innerHTML) || !checkEvents('month',headerMonthDocumentElement.innerHTML) || !checkEvents('day', day.innerHTML)){
+                    setTimeout(()=>{
+                        noEvents.style.display='initial';
+                    },600)
                     noEvents.innerHTML = `There are no events on ${headerMonthDocumentElement.innerHTML} ${day.innerHTML} ${headerYearDocumentElement.innerHTML}`;
-                    day.classList.remove("active-event");
+                    day.classList.remove('active-event');
                 }
-                //If events on day selected show them
-                if( checkEvents("year", headerYearDocumentElement.innerHTML) && checkEvents ("month", headerMonthDocumentElement.innerHTML) & checkEvents ("day", day.innerHTML)) {
-                    showEventText( eventData.events[i].descritpion);
+                //if events on day selected show them
+                if(checkEvents('year',headerYearDocumentElement.innerHTML) && checkEvents('month', headerMonthDocumentElement.innerHTML) & checkEvents('day', day.innerHTML)){
+                    showEventText(eventData.events[i].description);
                 }
             }
         }
@@ -369,4 +391,3 @@ function newEventJson(description, month, year,day) {
     };
     eventData.events.push(event);
 };
-

@@ -2,9 +2,10 @@
     margin: 0;
 }
 ul{list-style-type: none;}
-body{font-family: 'Source Sans Pro', sans-serif;}
+body{font-family: 'Source Sans Pro', sans-serif;
+}
 nav{
-    height: 10vh;
+    height: 8vh;
     line-height: 65px;
     padding:0px 100px;
     position:relative;
@@ -51,11 +52,12 @@ th {
 }
 
 .month{
-    text-align: center;
+    
+    text-align:center;
     background-color:#395B64;
     font-size: 1rem;
     color:white;
-    height: 13vh;
+    height: 10vh;
 }
 
 .calendar{
@@ -65,6 +67,7 @@ th {
     min-height: 425px;
     flex-direction: row;
     align-items: center;
+    background-image: linear-gradient( to top,#4FA095, #BAD1C2  );
 }
 
 tbody { margin: 0;
@@ -82,9 +85,9 @@ td  {
     font-size: 20px;
     border: 1px solid rgb(179, 179, 179);
     cursor: pointer;
-    padding-left: 5px;
+    padding-left: 6px;
     padding-top: 5px;
-    width: 100px;
+    width: 12%;
     height: 10vh;
     color: grey;
     transition: all 600ms;
@@ -103,6 +106,15 @@ button {
     cursor: pointer;
 }
 
+.container{
+    display:flexbox;
+    background-color: #dd9756;
+    margin: 20px;
+    padding: 10px;
+    font-size: 15px;
+    align-self: center;
+}
+
 .prev-month{
     
     font-size: 1.4rem;
@@ -112,7 +124,7 @@ button {
 }
 
 .prev-month:hover{
-    color:#2C3333 ;
+    color:#2C3333;
 }
 
 .next-month {
@@ -132,13 +144,14 @@ button {
 }
 table{
     border-collapse: collapse;
-    margin: auto;
+    margin-left: auto;
     border: 1px solid rgb(105, 156, 154);
     height: 100px;
-    width: 60%;
+    width:59%;
     border-spacing: 0;
 
 }
+
 
 footer{
     height: 15vh;
@@ -155,18 +168,20 @@ footer{
 /* Select Date */
 
 .select-date{
-    
     border-right: none;
     border-bottom: 1px;
-    width: 100%;
+    padding: 5px;
+    width: 80%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    border-radius: 3px;
     color: #2C3333;
 }
 
 #month {
     margin-right:40px;
+    color:#395B64;
+    border-radius: 7px;
 }
 
 #year {
@@ -177,13 +192,24 @@ footer{
     color:#395B64;
     background: #E7F6F2 ;
     border: 1px solid #395B64;
+    text-align: center;
+    width: 90px;
+    border-radius: 7px;
 }
 
-
-#select-month{
+.today-btn {
     color: #395B64;
     border: 1px solid #395B64;
     background: #E7F6F2;
+    align-items: center;
+    outline: none;
+    border-radius: 7px;
+}
+
+.today-btn:hover{
+    color: white;
+    border-radius: 0;
+    background-color: #2C3333;
 }
 
 .select-date label{
@@ -197,8 +223,8 @@ footer{
     background: linear-gradient(to bottom left, #f2fcef, #eff7f1);
     display: flex;
     width: 400px;
-    height: 425px;
-    margin-left: 0;
+    height: 400px;
+    margin-left: 5;
     margin-right: 40px;
     padding-top: 80px;
     border: 2px solid black;
@@ -218,11 +244,11 @@ footer{
 
 .events .event-message{
     align-items: center;
-    width: 80%;
+    width:60%;
     text-align: center;
     margin: 10px auto 0px auto;
     padding: 10px 5px;
-    background-image: linear-gradient( to right,#649173,  #dbd5a4 );
+    background-image: linear-gradient( to right,#79c071,  #9deba3 );
     border-radius: 2px;
     box-shadow: 2px 4px 8px #393a39;
     transition: all 0.5s cubic-bezier(.36,-0.64,.34,1.76);
@@ -246,7 +272,7 @@ footer{
     line-height: 12px;
     background-color: #69b6d5;
     position:absolute;
-    right:0;
+    right: 0;
     top:0;
     font-weight:100;
     font-size:14px;
@@ -260,11 +286,12 @@ footer{
 
 .active{
     background-color: rgb(199, 228, 234);
+    font-size: 1.6rem;
     }
 
-
-.active-event {
+.active-event  {
     background: pink;
+
 }
 
 .error {
@@ -272,20 +299,22 @@ footer{
 }
 
 .show-event-form {
-    margin-top: 20px;
-    padding: 10px;
+    margin: 60px 50px 80px 90px;
+    padding: 15px;
     flex-shrink: 0;
     border: none;
     position:relative;
     font-weight:600;
-    border-radius: 23px;
-    -webkit-transition: all .2s ease-in;
+    border-radius: 20px;
+    -webkit-transition: all .1s ease-in;
     transition: all .2s ease-in;
-    color:gray;
-    box-shadow: 5px 8px 14px #393a39;
-    background-color: #dbd5a4;
+    color:rgb(15, 15, 15);
+    box-shadow: 3px 6px 11px #393a39;
+    background-color: #b0b9ec;
     outline:none;
     cursor:pointer;
+    width: 50%;
+    align-items: center;
   }
 
   .show-event-form:hover{
@@ -327,7 +356,7 @@ footer{
 }
 
 #new-event-desc :focus{
-    width: 60%;
+    width: 40%;
 }
 
 .submit-event{
@@ -339,10 +368,12 @@ footer{
     color: #2C3333;
     box-shadow:5px 8px 14px #393a39;
     background-color: #dbd5a4;
-    align-self:center;
+    text-align: center;
     padding:10px;
     outline:none;
     cursor:pointer;
+    width: 100px;
+    margin: auto;
 }
 
 .submit-event:hover{
@@ -385,3 +416,60 @@ div {
     border-color: red;
 }
 
+.rightcontainer {
+    position: relative;
+    width: 40%;
+    min-height: 100%;
+    padding: 20px 0;
+}
+
+.rightcontainer .today-date {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    padding-left: 70px;
+    margin-top: 200px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.today-date .event-date {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.today-date .event-date {
+    font-size: 1rem;
+    font-weight: 400;
+    color:#3c4545;
+}
+
+.add-event {
+    position: absolute;
+    bottom: 80px;
+    border-radius: 50%;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color:grey;
+    border: 2px solid #878895;
+    opacity: 0.6;
+    background-color: transparent;
+    cursor: pointer;
+}
+.add-event:hover {
+    opacity: 1;
+}
+
+.add-event i {
+    pointer-events: none;
+}
