@@ -134,7 +134,6 @@ let date = 1;
             }
         }
         calendarDaysDocumentElement.appendChild(row); //appending each row into calendar body.
-        showEvents();
 }
 };
 
@@ -168,7 +167,7 @@ function skipToSelectedMonthAndYear() {
     currentYear = parseInt(selectYearDocumentElement.value);
     currentMonth = parseInt(selectMonthDocumentElement.value);
     createCalendar(currentMonth, currentYear);
-    showEvents();
+
 };
 
 //Adding Today's button functionality
@@ -182,6 +181,32 @@ todayBtn.addEventListener("click", () => {
      createCalendar();
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 //Events
 document.addEventListener("click", function(e) {
     if(!e.target.classList.contains("active") && e.target.classList.contains("day")){
@@ -391,3 +416,4 @@ function newEventJson(description, month, year,day) {
     };
     eventData.events.push(event);
 };
+*/

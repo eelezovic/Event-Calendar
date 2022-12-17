@@ -44,7 +44,7 @@
     </thead>
     <tbody id="calendar-days"></tbody>
 </table>
-<div class="container">
+  <div class="date-selector">
     <form class="select-date">
       <label for="month">Go To:</label>
         <select name="month" id="month">
@@ -64,8 +64,10 @@
     <input type="number" min="1" id="year">
     <button class="today-btn">Today</button>
     </form> 
+  </div> 
+<div class="container">
     <div class="event-container">
-      <div class="rightcontainer">
+      
         <div class="today-date">
           <div class="event-day">Wed</div>
           <div class="event-date">16 November 2022 </div>
@@ -79,7 +81,7 @@
             <div class="event-time">10:00AM - 12:00PM</div>
           </div>
         </div>
-      </div>
+      
       <div class="events visible">
         <span class="no-Events event-message">There are no events today</span>
         <button class="show-event-form rotate">Add New Event</button>
@@ -95,21 +97,10 @@
         </button>
 </div>
 </div>
+</div>
 
 <footer>
-  <div class="item" id="item" draggable="true">
-    <i class="fa-solid fa-sun draggable" style="color:#ffdb0c;" ></i>
-    <i class="fa-solid fa-cloud-moon" style="color: #f68f20;" draggable="true"></i>
-    <i class="fa-solid fa-moon draggable" style="color: #141852;" draggable="true"></i>
-    <i class="fa-solid fa-palm draggable" style="color: green;"draggable="true"></i>
-    <i class="fa-solid fa-dollar draggable" style="color:#4b9620;"draggable="true"></i>
-    <i class="fa-solid fa-phone draggable"style="color: grey;"draggable="true"></i>
-    <i class="fa-solid fa-house draggable" style="color: rgb(41, 41, 186);"draggable="true"></i>
-    <i class="fa-solid fa-plane draggable" style="color:rgb(1, 169, 178);"draggable="true"></i>
-    <i class="fa-solid fa-house-medical-circle-exclamation draggable" style="color: red;"draggable="true"></i>
-    <i class="fa-solid fa-star draggable" style="color:rgb(255, 80, 255)" draggable="true"></i>
-    <i class="fa-solid fa-plus" style="color:aliceblue;"></i>
-  </div>
+
 </footer>
 
 <script src="script.js"></script>
