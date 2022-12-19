@@ -1,74 +1,76 @@
 //calendar
-const headerMonthDocumentElement = document.getElementById("header-month");
-const headerYearDocumentElement = document.getElementById("header-year");
-const calendarDaysDocumentElement = document.getElementById("calendar-days");
+const headerMonthDocumentElement = document.getElementById('header-month');
+const headerYearDocumentElement = document.getElementById('header-year');
+const calendarDaysDocumentElement = document.getElementById('calendar-days');
 const nextMonthDocumentElement = document.getElementById('next-month');
 const previousMonthDocumentElement = document.getElementById('prev-month');
 const selectYearDocumentElement = document.getElementById('year');
 const selectMonthDocumentElement = document.getElementById('month');
-const todayBtn = document.querySelector(".today-btn");
+const todayBtn = document.querySelector('.today-btn');
 
 let currentDate = new Date();
 let currentMonth = currentDate.getMonth();
 let currentYear = currentDate.getFullYear();
-const MONTHS  = [
-   "January",
-   "February",  
-   "March",
-   "April",  
-   "May", 
-   "June",
-   "July",
-   "August",
-   "September",
-   "October",
-   "November",
-   "December", 
-   ];
+const MONTHS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
-   //JSON event data
-   let eventData = {
-    "events": [
-        {
-            "descritpion": "es",
-            "year": "2022",
-            "month": "December",
-            "day": "11"
-        
-        }
-    ]
-   };
+//JSON event data
+let eventData = {
+  events: [
+    {
+      descritpion: 'es',
+      year: '2022',
+      month: 'December',
+      day: '11',
+    },
+  ],
+};
 
 // Select any month and year on the calendar
-   selectYearDocumentElement.value = currentYear;
-   selectMonthDocumentElement.value = currentMonth;
+selectYearDocumentElement.value = currentYear;
+selectMonthDocumentElement.value = currentMonth;
 
-   selectYearDocumentElement.addEventListener("input", (event) => {
-    if(event.keyCode == 13) {
-        event.preventDefault();
-        return false;
-    } else {
-        skipToSelectedMonthAndYear();
-    }
-   })
-   selectMonthDocumentElement.addEventListener("change", skipToSelectedMonthAndYear);
+selectYearDocumentElement.addEventListener('input', (event) => {
+  if (event.keyCode == 13) {
+    event.preventDefault();
+    return false;
+  } else {
+    skipToSelectedMonthAndYear();
+  }
+});
+selectMonthDocumentElement.addEventListener(
+  'change',
+  skipToSelectedMonthAndYear
+);
 
 // Function to add days
 const createCalendar = () => {
-    headerMonthDocumentElement.innerHTML = `${MONTHS[currentMonth]}, ${currentYear}`
-    const firstDayOfMonth = new Date(currentYear, currentMonth,1).getDay();
-    const lastDayOfMonth = new Date (currentYear, currentMonth +1, 0);
-    const numberOfDaysinMonth =  32 - new Date(currentYear, currentMonth, 32).getDate();
-    const lastDayOfPrevMonth = new Date(currentYear, currentMonth,0).getDate();
-    console.log(lastDayOfPrevMonth)
+  headerMonthDocumentElement.innerHTML = `${MONTHS[currentMonth]}, ${currentYear}`;
+  const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+  const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+  const numberOfDaysinMonth =
+    32 - new Date(currentYear, currentMonth, 32).getDate();
+  const lastDayOfPrevMonth = new Date(currentYear, currentMonth, 0).getDate();
+  console.log(lastDayOfPrevMonth);
 
+  //Cleaning all previous cells
+  calendarDaysDocumentElement.innerHTML = '';
 
-    //Cleaning all previous cells
-    calendarDaysDocumentElement.innerHTML = "";
+  //Getting Last Month Info and Next Month Info
 
-//Getting Last Month Info and Next Month Info
-
-/*const daysinLastMonth = () => {
+  /*const daysinLastMonth = () => {
     const lastMonth = currentMonth - 1;
     let yearOfLastMonth = currentYear;
     if (lastMonth === 0) {
@@ -103,108 +105,84 @@ const daysInNextMonth = () => {
     }
 }
 */
-//creating all cells
-let date = 1;
+  //creating all cells
+  let date = 1;
 
+  for (let i = 0; i < 6; i++) {
+    //creates a table row
+    let row = document.createElement('tr');
 
-    for (let i = 0; i < 6;  i++) {
-        //creates a table row
-        let row = document.createElement("tr");
-
-        //creating individual collumns, filling them up with data.
-        for (let j = 0; j < 7; j++ ){
-            let column = document.createElement("td"); 
-            if(date > numberOfDaysinMonth) break;
-            else if (i === 0 && j < firstDayOfMonth) {
-                let columnText = document.createTextNode("");
-                column.appendChild(columnText)
-                row.appendChild(column)
-            }
-            else {
-                let columnText = document.createTextNode(date);
-                column.appendChild(columnText);
-                if( date ===currentDate.getDate() && currentMonth === currentDate.getMonth() && currentYear === currentDate.getFullYear()){
-                    column.classList.add("active"); // colour today's date
-                }
-            else { lastDayOfPrevMonth }
-            column.classList.add('day');
-            column.appendChild(columnText);
-            row.appendChild(column);
-            date++;
-            }
+    //creating individual collumns, filling them up with data.
+    for (let j = 0; j < 7; j++) {
+      let column = document.createElement('td');
+      if (date > numberOfDaysinMonth) break;
+      else if (i === 0 && j < firstDayOfMonth) {
+        let columnText = document.createTextNode('');
+        column.appendChild(columnText);
+        row.appendChild(column);
+      } else {
+        let columnText = document.createTextNode(date);
+        column.appendChild(columnText);
+        if (
+          date === currentDate.getDate() &&
+          currentMonth === currentDate.getMonth() &&
+          currentYear === currentDate.getFullYear()
+        ) {
+          column.classList.add('active'); // colour today's date
+        } else {
+          lastDayOfPrevMonth;
         }
-        calendarDaysDocumentElement.appendChild(row); //appending each row into calendar body.
-}
+        column.classList.add('day');
+        column.appendChild(columnText);
+        row.appendChild(column);
+        date++;
+      }
+    }
+    calendarDaysDocumentElement.appendChild(row); //appending each row into calendar body.
+  }
 };
 
 createCalendar();
 
+const nextMonth = () => {
+  currentMonth = currentMonth + 1;
+  calendarDaysDocumentElement.innerHTML = '';
+  if (currentMonth > 11) {
+    currentYear = currentYear + 1;
+    currentMonth = 0;
+  }
 
-    const nextMonth = () => {
-        currentMonth = currentMonth + 1;
-        calendarDaysDocumentElement.innerHTML = ""; 
-        if(currentMonth > 11){
-            currentYear = currentYear + 1;
-            currentMonth = 0;
-    };
-
-createCalendar();
-return currentMonth;
+  createCalendar();
+  return currentMonth;
 };
 
 const prevMonth = () => {
-    currentMonth = currentMonth - 1;
-    calendarDaysDocumentElement.innerHTML = "";
-    if(currentMonth < 0){
-        currentYear = currentYear - 1;
-        currentMonth = 11;
-    };
-createCalendar();
-return currentMonth;
+  currentMonth = currentMonth - 1;
+  calendarDaysDocumentElement.innerHTML = '';
+  if (currentMonth < 0) {
+    currentYear = currentYear - 1;
+    currentMonth = 11;
+  }
+  createCalendar();
+  return currentMonth;
 };
 
 function skipToSelectedMonthAndYear() {
-    currentYear = parseInt(selectYearDocumentElement.value);
-    currentMonth = parseInt(selectMonthDocumentElement.value);
-    createCalendar(currentMonth, currentYear);
-
-};
+  currentYear = parseInt(selectYearDocumentElement.value);
+  currentMonth = parseInt(selectMonthDocumentElement.value);
+  createCalendar(currentMonth, currentYear);
+}
 
 //Adding Today's button functionality
 
-todayBtn.addEventListener("click", () => {
-     currentDate = new Date();
-     currentMonth = currentDate.getMonth();
-     currentYear = currentDate.getFullYear();
-     selectYearDocumentElement.value = currentYear;
-     selectMonthDocumentElement.value = currentMonth;
-     createCalendar();
+todayBtn.addEventListener('click', () => {
+  currentDate = new Date();
+  currentMonth = currentDate.getMonth();
+  currentYear = currentDate.getFullYear();
+  selectYearDocumentElement.value = currentYear;
+  selectMonthDocumentElement.value = currentMonth;
+  createCalendar();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 //Events
