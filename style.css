@@ -183,28 +183,14 @@ footer{
     width: 100%;
     background: #2B4865;
     font-size: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
     cursor: pointer;
 }
 
 
 /* Select Date */
-
-.select-date #month #year {
-    flex-basis: 25%;
-    display: flex;
-    flex-direction:row;
-    border-radius: 3px;
-    padding-left: 40px;
-    color: #2C3333;
-    -moz-appearance: textfield;
-    text-align: center;
-    justify-content: center;
-}
-
-
 
 .today-btn {
     color: #395B64;
@@ -218,12 +204,7 @@ footer{
 .today-btn:hover{
     color: white;
     border-radius: 0;
-    background-color: #2C3333;
-}
-
-.select-date label{
-    margin-left: 40px;
-    align-self: center;
+    background-color: #395B64;
 }
 
 table {
@@ -232,21 +213,66 @@ table {
     border-color: red;
 }
 
-div {
-    border-width: 1px;
-    border-style: dashed;
-    border-color: red;
+.goto-today {
+    width: 18%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+    padding: 0 10px;
+    margin-top: 10px;
+    color: #395B64;
 }
 
-.rightcontainer {
+.goto-today .goto {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #2C3333;
+}
+
+.goto-today .goto input{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+    color: #2C3333;
+    border-radius: 5px;
+}
+
+.goto-today button {
+    padding: 3px 15px;
+    border: 1px solid #2C3333;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    color:#395B64;
+}
+
+.goto-today button:hover {
+    color: #fff;
+    background-color: #688e9e;
+}
+
+.goto-today .goto button {
+    border: none;
+    border-left: 1px solid #687171;
+    border-radius: 0;
+}
+
+.container-right {
     position: relative;
-    width: 40%;
+    width: 20%;
     min-height: 100%;
     padding: 20px 0;
 }
 
-.rightcontainer .today-date {
-    width: 50%;
+.container-right .today-date {
+    width: 40%;
     height: 30px;
     display: flex;
     flex-wrap: wrap;
@@ -255,34 +281,36 @@ div {
     justify-content: space-between;
     padding: 0 20px;
     padding-left: 70px;
-    margin-top: 200px;
-    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 20px;
     text-transform: capitalize;
 }
 
 .today-date .event-date {
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 800;
 }
 
 .today-date .event-date {
     font-size: 1rem;
     font-weight: 400;
-    color:#3c4545;
+    color:#3c4545; 
 }
+
+
 
 .add-event {
     position: absolute;
-    bottom: 150px;
-    border-radius: 50%;
-    right: 30px;
+    border-radius: 50%; 
+    margin-top: 40px;
+    right: 10px;
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    color:grey;
+    color:rgb(36, 10, 93);
     border: 2px solid #878895;
     opacity: 0.6;
     background-color: transparent;
@@ -305,5 +333,23 @@ div {
     bottom: 100px;
     top: 30px;
     width: 15%;
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+div {
+    border-width: 1px;
+    border-style: dashed;
+    border-color: red;
 }

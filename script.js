@@ -4,9 +4,9 @@ const headerYearDocumentElement = document.getElementById("header-year");
 const calendarDaysDocumentElement = document.getElementById("calendar-days");
 const nextMonthDocumentElement = document.getElementById('next-month');
 const previousMonthDocumentElement = document.getElementById('prev-month');
-const selectYearDocumentElement = document.getElementById('year');
-const selectMonthDocumentElement = document.getElementById('month');
 const todayBtn = document.querySelector(".today-btn");
+const gotoBtn = document.querySelector(".goto-btn");
+const dateInput = document.querySelector(".date-input");
 
 let currentDate = new Date();
 let currentMonth = currentDate.getMonth();
@@ -25,33 +25,6 @@ const MONTHS  = [
    "November",
    "December", 
    ];
-
-   //JSON event data
-   let eventData = {
-    "events": [
-        {
-            "descritpion": "es",
-            "year": "2022",
-            "month": "December",
-            "day": "11"
-        
-        }
-    ]
-   };
-
-// Select any month and year on the calendar
-   selectYearDocumentElement.value = currentYear;
-   selectMonthDocumentElement.value = currentMonth;
-
-   selectYearDocumentElement.addEventListener("input", (event) => {
-    if(event.keyCode == 13) {
-        event.preventDefault();
-        return false;
-    } else {
-        skipToSelectedMonthAndYear();
-    }
-   })
-   selectMonthDocumentElement.addEventListener("change", skipToSelectedMonthAndYear);
 
 // Function to add days
 const createCalendar = () => {
@@ -176,12 +149,46 @@ todayBtn.addEventListener("click", () => {
      currentDate = new Date();
      currentMonth = currentDate.getMonth();
      currentYear = currentDate.getFullYear();
-     selectYearDocumentElement.value = currentYear;
-     selectMonthDocumentElement.value = currentMonth;
      createCalendar();
 });
 
+dateInput.addEventListener("keyup", (e) => {
+    //allow only numbers, remove anything else
+    dateInput.value = dateInput.value.replace(/[^0-9/]/g, "");
+    if (dateInput.value.length === 2) {
+        //add a slash if two numbers enetered
+        dateInput.value += "/"
+    }
+    //No more than 7 characters allowed
+    if(dateInput.value.length > 7) {
+        dateInput.value = dateInput.value.slice(0, 7)
+    }
+    //If backspace pressed 
+    if(e.inputType === "deleteContentBackward") {
+        if(dateInput.value.length === 3 ) {
+            dateInput.value = dateInput.value.slice(0,2);
+        }
+    }
+});
 
+//Function to go to entered date
+gotoBtn.addEventListener("click", gotoDate);
+
+function gotoDate() {
+    const dateArr = dateInput.value.split("/");
+    console.log(dateArr)
+    if(dateArr.length === 2) {
+        if(dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4) {
+            currentMonth = dateArr[0] - 1;
+            currentYear = dateArr[1];
+            createCalendar();
+            return;
+        }
+    }
+    //if Invalid date entered
+    alert('invalid date');
+}
+   
 
 
 
