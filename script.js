@@ -26,6 +26,27 @@ const MONTHS  = [
    "December", 
    ];
 
+//Default Events Array
+const eventsArr = [
+    {
+        day: 26,
+        currentMonth: 12,
+        currentYear: 2022,
+        events: [
+            {
+                title: " Today is the first day after xmas",
+                time: "10:00 AM",
+            },
+            {
+                title: "Event 2",
+                time: "11:00 AM"
+            },
+        ],
+    },
+];
+
+
+
 // Function to add days
 const createCalendar = () => {
     headerMonthDocumentElement.innerHTML = `${MONTHS[currentMonth]}, ${currentYear}`
@@ -33,7 +54,9 @@ const createCalendar = () => {
     const lastDayOfMonth = new Date (currentYear, currentMonth +1, 0);
     const numberOfDaysinMonth =  32 - new Date(currentYear, currentMonth, 32).getDate();
     const lastDayOfPrevMonth = new Date(currentYear, currentMonth,0).getDate();
-    console.log(lastDayOfPrevMonth)
+    const day = currentDate.getDay(currentYear, currentMonth, 1);
+    console.log(day)
+
 
 
     //Cleaning all previous cells
@@ -188,7 +211,59 @@ function gotoDate() {
     //if Invalid date entered
     alert('invalid date');
 }
-   
+
+
+const addEventBtn = document.querySelector(".add-event"),
+  addEventContainer = document.querySelector(".add-event-wrapper"),
+  addEventCloseBtn = document.querySelector(".close"),
+  addEventTitle = document.querySelector(".event-name"),
+  addEventFrom = document.querySelector(".event-time-from"),
+  addEventTo = document.querySelector(".event-time-to");
+
+addEventBtn.addEventListener("click", () => {
+    addEventContainer.classList.toggle("active");
+});
+addEventCloseBtn.addEventListener("click", () => {
+    addEventContainer.classList.remove("active");
+});
+document.addEventListener("click", (e) => {
+    //if clicked outside 
+    if (e.target !== addEventBtn && !addEventContainer.contains(e.target)) {
+        addEventContainer.classList.remove("active");
+    }
+});
+
+//Allow only 50 characters in title
+addEventTitle.addEventListener("input", (e) => {
+    addEventTitle.value = addEventTitle.value.slice(0, 50);
+});
+
+//Time format in from and to time
+addEventFrom.addEventListener("input", (e) => {
+    //Remove anything else but numbers
+    addEventFrom.value = addEventFrom.value.replace(/[^0-9:]/g, "");
+    if (addEventFrom.value.length === 2){
+        addEventFrom.value += ":";
+    }
+    //No more than 5 characters can be entered
+    if (addEventFrom.value.length > 5) {
+        addEventFrom.value = addEventFrom.value.slice (0, 5);
+    }
+});
+
+//Setting up  To time
+addEventTo.addEventListener("input", (e) => {
+    //Remove anything else but numbers
+    addEventTo.value = addEventTo.value.replace(/[^0-9:]/g, "");
+    if (addEventTo.value.length === 2){
+        addEventTo.value += ":";
+    }
+    //No more than 5 characters can be entered
+    if (addEventTo.value.length > 5) {
+        addEventTo.value = addEventTo.value.slice (0, 5);
+    }
+});
+
 
 
 
