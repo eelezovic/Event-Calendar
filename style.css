@@ -11,7 +11,7 @@
         font-size: 1rem;
     }
 }
-
+.calendar-days
 ul{list-style-type: none;}
 body{font-family: 'Source Sans Pro', sans-serif;
 }
@@ -49,14 +49,6 @@ nav ul li a:hover{
     color: #2C3333;
 }
 
-th {
-    display: inline-block;
-    width: 14%;
-    color: #2C3333;
-    text-align: center;
-    background-color: rgb(166, 218, 216);
-}
-
 .month {
     display: flex;
     width:100%;
@@ -68,11 +60,12 @@ th {
     height: 7vh;
     padding-top: 20px;
 }
-#header-month {
+.header-date {
     display: flex ;
     text-align: center;
     justify-content: center;
-    padding-left: 190px;
+    padding-left: 150px;
+    font-size: 2rem;
 }
 
 .calendar {
@@ -81,28 +74,6 @@ th {
     align-items: flex-start;
 }
 
-tbody { 
-    padding: 10px 0;
-    background-color: #ecf5f2;
-}
-
-td  {
-    background-color: white;
-    border-radius: 8%;
-    display: inline-block;
-    margin: 5px 5px;
-    font-size: 20px;
-    border: 1px solid rgb(179, 179, 179);
-    cursor: pointer;
-    width: 13%;
-    height: 10vh;
-    color: grey;
-    transition: all 600ms;
-}
-
-td:hover{
-        background:rgb(240, 234, 145) ;
-    }
 
 button {
     border: none;
@@ -113,99 +84,115 @@ button {
     cursor: pointer;
 }
 
-.container{
-    display:flex;
-    background-color: #a1e8ed;
-    justify-content: left;
-    padding: 10px;
-    font-size: 15px;
-    align-self: center;
-    width: 20%;
-    height: 40vh;
-}
-.prev-month, .next-month{
-    display: flex;
-    width:5px;
-    height: 5px;
-    background-color:#395B64;
-    font-size: 1rem;
-    color:white;
 
-}
-
-.prev-month{
-    
-    font-size: 1.4rem;
-    color: white;
-}
-
-.prev-month:hover{
-    color:#2C3333;
-}
-
-.next-month {
-    font-size: 1.4rem;
-    color: white;
-}
-
-.next-month:hover{
-    color: #2C3333;
-}
 
 .weekdays {
     background-color: rgb(166, 218, 216);
     display: flex;
     flex-direction: row;
-    justify-content: center;  
+    justify-content: space-around;  
     align-items: center;
-    width: 40px ;
-
+    width: 100% ;
 }
-tr {
+
+.weekdays div {
+    width: 16%;
+    height: 100%;
     display: flex;
-    flex-direction: row; 
     align-items: center;
-    
-}
-table{
-    border-collapse: collapse;
-    border: 1px solid rgb(105, 156, 154);
-    height: 100px;
-    width:59%;
-    border-spacing: 0;
-    padding-left: 40px;
-
+    justify-content: center;
 }
 
-
-footer{
-    height: 5vh;
+.days {
     width: 100%;
-    background: #2B4865;
-    font-size: 35px;
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: all 600ms;
+
+}
+
+.days .day {
+    border-radius: 8%;
+    width: 12.5%;
+    height: 70px;
+    margin: 5px 5px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: grey;
+    background-color: white;
+    border: 1px solid rgb(179, 179, 179);
+}
+
+.day:not(.prev-date, next-date):hover {
+    color: rgb(0, 93, 98);
+}
+
+.days .prev-date,
+.days .next-date {
+    color: #b3b3b3;
+}
+
+.prev, .next {
+    font-size: 1.5rem;
     cursor: pointer;
 }
+
+.days .active {
+    position: relative;
+    font-size: 1.3rem;
+    color: #fff;
+    background-color:#dbefec ;
+}
+
+
+.days .today {
+    font-size: 1.2rem;
+    color:#06394a;
+    background-color: #a6d9e9;
+}
+
+.days .event {
+    background-color: #e4dce9;
+    position: relative;
+} 
+
+.active.event {
+    padding-bottom: 10px;
+}
+
+
+
+
+
+
+.table{
+    background-color: #ecf5f2;
+    border: 1px solid rgb(105, 156, 154);
+    height: 80%;
+    width:40%;
+    margin-left: 25%;
+
+}
+
 
 
 /* Select Date */
 
-table {
-    border-width: 1px;
-    border-style: dashed;
-    border-color: red;
-}
-
 .goto-today {
-    width: 18%;
+    width: 31%;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap: 5px;
-    padding: 0 10px;
+    padding: 5px 5px;
     margin-top: 10px;
     color: #395B64;
 }
@@ -251,7 +238,7 @@ table {
 
 .container-right {
     position: relative;
-    width: 20%;
+    width: 15%;
     min-height: 100%;
     padding: 20px 0;
 }
@@ -291,7 +278,7 @@ table {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    padding: 0; <!provjeri jer bi trebalo biti 4px ali se stvara plava linija>
+    padding: 4px; <!provjeri jer bi trebalo biti 4px ali se stvara plava linija>
     background: #59acd0;
 }
 
@@ -303,9 +290,9 @@ table {
     justify-content: center;
     flex-direction: column;
     gap: 5px;
-    padding: 0 20px;
+    padding: 0 10px;
     padding-left: 40px;
-    color: white;
+    color: rgb(220, 22, 22);
     cursor: pointer;
     background-color: linear-gradient(90deg, #3f4458, transparent);
 }
@@ -343,7 +330,7 @@ table {
     pointer-events: none;
 }
 
-.event ::after {
+.events ::after {
     content:"✓";
     position: absolute;
     top: 40%;
@@ -357,7 +344,7 @@ table {
     transform: translateY(-50%);
 }
 
-.event:hover::after {
+.events .event:hover::after {
     display: flex;
 }
 
@@ -369,9 +356,6 @@ table {
     max-height: 0;
     overflow: hidden;
     border-radius: 5px;
-    background-color: rgb(176, 229, 242); 
-    transform: translateX(-50%);
-    transition: max-height 0.4s;
 }
 
 .add-event-wrapper.active {
@@ -421,7 +405,7 @@ table {
     gap:3px;
 }
 
-.add-event-body .add-event-input{
+.add-event-body .add-event-input input {
     width: 85%;
     height: 100%;
     outline: none;
@@ -433,16 +417,16 @@ table {
     color: #373c4f;
 }
 
-.add-event-body .add-event-input ::placeholder {
-    color: #395B64;
+.add-event-body .add-event-input input::placeholder {
+    color: #97a9ae;
 }
 
 .add-event-body .add-event-input input:focus {
-    border-color: orangered;
+    border-color: rgb(28, 44, 91);
 }
 
-.add-event-body .add-event-input input :focus ::placeholder {
-    color: purple;
+.add-event-body .add-event-input input:focus::placeholder {
+    color: rgb(34, 76, 94);
 }
 
 .add-event-footer {
@@ -475,8 +459,8 @@ table {
 .add-event {
     position: absolute;
     border-radius: 50%; 
-    bottom: 135px;
-    right: 10px;
+    bottom: 150px;
+    right: 20px;
     width: 40px;
     height: 40px;
     display: flex;
@@ -507,6 +491,19 @@ table {
     top: 30px;
     width: 15%;
 }
+
+.today {
+    background-color: rgb(187, 228, 236);
+    color: grey;
+}
+
+
+
+
+
+
+
+
 
 
 
