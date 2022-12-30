@@ -60,11 +60,10 @@ nav ul li a:hover{
     height: 7vh;
     padding-top: 20px;
 }
-.header-date {
+.date {
     display: flex ;
-    text-align: center;
-    justify-content: center;
-    padding-left: 150px;
+    text-align:start;
+    justify-content:flex-start;
     font-size: 2rem;
 }
 
@@ -73,18 +72,6 @@ nav ul li a:hover{
     flex-direction: row;
     align-items: flex-start;
 }
-
-
-button {
-    border: none;
-    background-color: transparent;
-    position: relative;
-    margin: 5px;
-    padding: 5px;
-    cursor: pointer;
-}
-
-
 
 .weekdays {
     background-color: rgb(166, 218, 216);
@@ -119,8 +106,9 @@ button {
 .days .day {
     border-radius: 8%;
     width: 12.5%;
-    height: 70px;
+    height: 10vh;
     margin: 5px 5px;
+    padding-left: 3px;
     display: inline-block;
     align-items: center;
     justify-content: center;
@@ -131,7 +119,7 @@ button {
 }
 
 .day:not(.prev-date, next-date):hover {
-    color: rgb(0, 93, 98);
+    color: rgb(2, 96, 101);
 }
 
 .days .prev-date,
@@ -142,12 +130,24 @@ button {
 .prev, .next {
     font-size: 1.5rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+}
+
+.next:hover {
+    color: #2C3333 ;
+}
+
+.prev:hover {
+    color: #2C3333 ;
 }
 
 .days .active {
     position: relative;
     font-size: 1.3rem;
-    color: #fff;
+    color: rgb(16, 187, 28);
     background-color:#dbefec ;
 }
 
@@ -163,7 +163,7 @@ button {
     position: relative;
 } 
 
-.active.event {
+.active .event {
     padding-bottom: 10px;
 }
 
@@ -175,10 +175,10 @@ button {
 .table{
     background-color: #ecf5f2;
     border: 1px solid rgb(105, 156, 154);
-    height: 80%;
-    width:40%;
+    height: 78vh;
+    width:50%;
     margin-left: 25%;
-
+    display:flexbox;
 }
 
 
@@ -189,12 +189,11 @@ button {
     width: 31%;
     height: 30px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
     gap: 5px;
     padding: 5px 5px;
-    margin-top: 10px;
     color: #395B64;
+    position:absolute;
+    bottom: 45px;
 }
 
 .goto-today .goto {
@@ -278,8 +277,8 @@ button {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    padding: 4px; <!provjeri jer bi trebalo biti 4px ali se stvara plava linija>
-    background: #59acd0;
+    padding-top: 4px;
+    background: #80c0dc;
 }
 
 .events .event {
@@ -346,6 +345,17 @@ button {
 
 .events .event:hover::after {
     display: flex;
+}
+
+.events .no-event {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #878787;
 }
 
 .add-event-wrapper {

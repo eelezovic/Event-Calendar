@@ -1,5 +1,5 @@
 //calendar
-const headerDateDocumentElement = document.querySelector(".header-date");
+const date = document.querySelector(".date");
 const calendarDaysDocumentElement = document.querySelector(".days");
 const nextMonthDocumentElement = document.querySelector('.next');
 const previousMonthDocumentElement = document.querySelector('.prev');
@@ -7,7 +7,7 @@ const todayBtn = document.querySelector(".today-btn");
 const gotoBtn = document.querySelector(".goto-btn");
 const dateInput = document.querySelector(".date-input");
 const eventDay = document.querySelector(".event-day");
-const eventDate = document.querySelector("event-date");
+const eventDate = document.querySelector(".event-date");
 const eventsContainer = document.querySelector(".events");
 
 let currentDate = new Date();
@@ -69,7 +69,7 @@ function initCalendar () {
     const day = firstDayOfMonth.getDay();
     const nextDays = 7 - lastDayOfMonth.getDay() - 1 ;
 
- headerDateDocumentElement.innerHTML = MONTHS[currentMonth] + " " + currentYear;
+ date.innerHTML = MONTHS[currentMonth] + " , " + currentYear;
 
 //adding days on DOM
 let days = "";
@@ -102,6 +102,11 @@ let days = "";
         currentYear === new Date().getFullYear() &&
         currentMonth === new Date().getMonth()
     ) {
+        activeDay = i;
+        getActiveDay(i);
+        updateEvents(i);
+
+
         //if event found add event class
         if (event) {
         days += `<div class="day today event">${i}</div>`;
@@ -259,6 +264,11 @@ function addListener() {
             //setting current day as active day
             activeDay = Number(e.target.innerHTML);
 
+            //call active day after click
+            getActiveDay(e.target.innerHTML); 
+            updateEvents(Number(e.target.innerHTML));
+
+
             //remove active from already active day
             days.forEach((day) => {
                 day.classList.remove("active");
@@ -283,49 +293,80 @@ function addListener() {
                         }
                     });
                 }, 100);
+                //same with next month days
+            } else if (e.target.classList.contains("next-date")) {
+                nextMonth();
+
+                setTimeout(() => {
+
+                    //select all days of that month
+                    const days = document.querySelectorAll(".day");
+
+                    //After going to prev month add active to clicked
+                    days.forEach((day) => {
+                        if ( 
+                            !day.classList.contains("next-date") &&
+                            day.innerHTML === e.target.innerHTML
+                        ) {
+                            day.classList.add("active");
+                        }
+                    });
+                }, 100);
+            } else {
+                //remain current month days
+                e.target.classList.add("active");
             }
         });
     });
 }
 
-
-
-
-
-
-
-function getActiveDay(headerDateDocumentElement) {
-    const day = new Date( currentYear, currentMonth, headerDateDocumentElement);
+//Display active day events and date at top right corner
+function getActiveDay(date) {
+    const day = new Date( currentYear, currentMonth, date);
     const dayName = day.toString().split(" ")[0];
     eventDay.innerHTML = dayName;
-    eventDate.innerHTML = headerDateDocumentElement + " " + MONTHS[currentMonth] + " " + currentYear
-
+      eventDate.innerHTML = date + " " + MONTHS[currentMonth] + " " + currentYear;
 }
 
-//Events
-document.addEventListener("click", function(e) {
-    if(!e.target.classList.contains("active") && e.target.classList.contains("day")){
-        if(document.getElementsByClassName("active")[0] === undefined){
-            e.target.classList.add("active");
+//Function to show events od that day
+function updateEvents(date) {
+    let events = "";
+    eventsArr.forEach((event) => {
+        //getting events of active day only
+        if (
+            date === event.day &&
+            currentMonth + 1 === event.currentMonth &&
+            currentYear === event.currentYear
+        ) {
+            //The show event on document
+            event.events.forEach((event) => {
+                events += `<div class= "event">
+                <div class="title">
+                  <i class="fas fa-circle"></i>
+                  <h3 class="event-title">${event.title}</h3>
+                </div>
+                <div class="event-time">
+                  <span class="event-time">${event.time}</span>
+                </div>
+            </div>`;
+                
+            });
         }
-        document.getElementsByClassName("active")[0].classList.remove("active");
-        if(document.getElementsByClassName("active")[0] === undefined){
-            e.target.classList.add("active");
-        }
-        e.target.classList.add("active");
-    } else if(e.target.classList.contains("active") === null && e.target.classList.contains("day")){
-        e.target.classList.add("active");
-    }
-});
+    });
 
 //if nothing found
-if (events === "") {
-    events= `<div class = "no-event">
+    if (events === "") {
+    events= `<div class ="no-event">
              <h3>No Events</h3>
              </div>`;
+    }
+
+    eventsContainer.innerHTML = events;
+    
 }
-console.log(eventsContainer);
-eventsContainer.innerHTML = events;
+
+
+
 
 
 
