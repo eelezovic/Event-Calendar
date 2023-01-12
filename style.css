@@ -60,7 +60,8 @@ nav ul li a:hover{
     height: 7vh;
     padding-top: 20px;
 }
-.date {
+
+.header-date {
     display: flex ;
     text-align:start;
     justify-content:flex-start;
@@ -186,14 +187,14 @@ nav ul li a:hover{
 /* Select Date */
 
 .goto-today {
-    width: 31%;
+    
     height: 30px;
     display: flex;
     gap: 5px;
     padding: 5px 5px;
     color: #395B64;
-    position:absolute;
     bottom: 45px;
+    justify-content: space-between ;
 }
 
 .goto-today .goto {
@@ -240,6 +241,7 @@ nav ul li a:hover{
     width: 18%;
     min-height: 100%;
     padding: 20px 0;
+    display:flexbox;
 }
 
 .container-right .today-date {
@@ -263,7 +265,7 @@ nav ul li a:hover{
 }
 
 .today-date .event-date {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 400;
     color:#3c4545; 
     margin-top: 10px;
@@ -276,7 +278,7 @@ nav ul li a:hover{
     overflow-x: hidden;
     overflow-y: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     padding-top: 4px;
     background: #80c0dc;
 }
@@ -291,7 +293,7 @@ nav ul li a:hover{
     gap: 5px;
     padding: 0 10px;
     padding-left: 40px;
-    color: rgb(220, 22, 22);
+    color: rgb(255, 255, 255);
     cursor: pointer;
     background-color: linear-gradient(90deg, #3f4458, transparent);
 }
@@ -311,9 +313,10 @@ nav ul li a:hover{
 }
 
 .events .event .title .event-title {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 400;
     margin-left: 20px;
+    color: rgb(90, 6, 115);
 }
 
 .events .event:hover .title i,
@@ -322,9 +325,9 @@ nav ul li a:hover{
 }
 
 .events .event .event-time {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 400;
-    color: rgb(99, 98, 98);
+    color: rgb(73, 70, 70);
     margin-left: 15px;
     pointer-events: none;
 }
@@ -356,25 +359,26 @@ nav ul li a:hover{
     font-size: 1.5rem;
     font-weight: 500;
     color: #878787;
+    margin: auto;
 }
 
 .add-event-wrapper {
     position: absolute;
-    top: 210px;
-    left: 50%;
-    width: 90%;
+    top: 150px;
+    left: 25%;
+    width: 100%;
     max-height: 0;
     overflow: hidden;
     border-radius: 5px;
 }
 
 .add-event-wrapper.active {
-    max-height: 100vh;
+    max-height: 150vh;
 }
 
 .add-event-header {
     width: 90%;
-    height: 30px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -408,7 +412,7 @@ nav ul li a:hover{
 
 .add-event-body .add-event-input {
     width: 100%;
-    height: 22px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -420,7 +424,7 @@ nav ul li a:hover{
     height: 100%;
     outline: none;
     border: none;
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 2px solid #f5f5f5;
     padding: 0 10px;
     font-size: 1rem;
     font-weight: 400;
@@ -432,7 +436,7 @@ nav ul li a:hover{
 }
 
 .add-event-body .add-event-input input:focus {
-    border-color: rgb(28, 44, 91);
+    border-color: rgb(240, 165, 205);
 }
 
 .add-event-body .add-event-input input:focus::placeholder {
@@ -467,12 +471,9 @@ nav ul li a:hover{
 }
 
 .add-event {
-    position: absolute;
     border-radius: 50%; 
-    bottom: 150px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -482,6 +483,7 @@ nav ul li a:hover{
     opacity: 0.6;
     background-color: transparent;
     cursor: pointer;
+    margin-left:auto;
 }
 .add-event:hover {
     opacity: 1;
@@ -490,6 +492,16 @@ nav ul li a:hover{
 .add-event i {
     pointer-events: none;
 }
+
+.add-event-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    margin-left: auto;
+    
+}
+
 .active {
     background-color: #b7d9dc
 }

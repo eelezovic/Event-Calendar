@@ -1,5 +1,5 @@
 //calendar
-const date = document.querySelector(".date");
+const headerDateEl = document.querySelector(".header-date");
 const calendarDaysDocumentElement = document.querySelector(".days");
 const nextMonthDocumentElement = document.querySelector('.next');
 const previousMonthDocumentElement = document.querySelector('.prev');
@@ -9,12 +9,11 @@ const dateInput = document.querySelector(".date-input");
 const eventDay = document.querySelector(".event-day");
 const eventDate = document.querySelector(".event-date");
 const eventsContainer = document.querySelector(".events");
-const addEventSubmit = document.querySelector(".add-event-btn");
+const addEventSubmitButton = document.querySelector(".add-event-btn");
 
 let currentDate = new Date();
 let activeDay;
 let currentMonth = currentDate.getMonth();
-console.log(currentMonth);
 let currentYear = currentDate.getFullYear();
 const MONTHS  = [
    "January",
@@ -66,7 +65,7 @@ const eventsArr = [
 let eventsArr = [];
 
 //Calling get events
-getEvents ();
+getEvents();
 
 // Function to add days
 function initCalendar () {
@@ -78,7 +77,7 @@ function initCalendar () {
     const day = firstDayOfMonth.getDay();
     const nextDays = 7 - lastDayOfMonth.getDay() - 1 ;
 
- date.innerHTML = MONTHS[currentMonth] + " , " + currentYear;
+    headerDateEl.innerHTML = MONTHS[currentMonth] + " , " + currentYear;
 
 //adding days on DOM
 let days = "";
@@ -112,8 +111,8 @@ let days = "";
         currentMonth === new Date().getMonth()
     ) {
         activeDay = i;
-        getActiveDay(i);
-        updateEvents(i);
+        getActiveDay(activeDay);
+        updateEvents(activeDay);
 
 
         //if event found add event class
@@ -242,6 +241,7 @@ document.addEventListener("click", (e) => {
 //Allow only 50 characters in title
 addEventTitle.addEventListener("input", (e) => {
     addEventTitle.value = addEventTitle.value.slice(0, 50);
+     
 });
 
 //Time format in from and to time
@@ -334,20 +334,20 @@ function addListener() {
 }
 
 //Display active day events and date at top right corner
-function getActiveDay(date) {
-    const day = new Date( currentYear, currentMonth, date);
+function getActiveDay(headerDateEl) {
+    const day = new Date( currentYear, currentMonth, headerDateEl);
     const dayName = day.toString().split(" ")[0];
     eventDay.innerHTML = dayName;
-      eventDate.innerHTML = date + " " + MONTHS[currentMonth] + " " + currentYear;
+      eventDate.innerHTML = headerDateEl + " " + MONTHS[currentMonth] + " " + currentYear;
 }
 
 //Function to show events od that day
-function updateEvents(date) {
+function updateEvents(headerDateEl) {
     let events = "";
     eventsArr.forEach((event) => {
         //getting events of active day only
         if (
-            date === event.day &&
+            headerDateEl === event.day &&
             currentMonth + 1 === event.currentMonth &&
             currentYear === event.currentYear
         ) {
@@ -378,9 +378,9 @@ function updateEvents(date) {
     //Save events when update event called
     saveEvents();
 }
-
+addEventBtn
 //Function to add events 
-addEventSubmit.addEventListener("click", () => {
+addEventSubmitButton.addEventListener("click", () => {
     const eventTitle = addEventTitle.value;
     const eventTimeFrom = addEventFrom.value;
     const eventTimeTo = addEventTo.value;
@@ -406,12 +406,13 @@ addEventSubmit.addEventListener("click", () => {
         alert("Invalid Time Format");
     }
 
-    //If backspace pressed
-    if (eventFromArr === "deleteContentBackward") {
-        if (eventFromArr.value.length === 3) {
-            eventFromArr.value = eventFromArr.value.slice(0,2);
+    /*If backspace pressed
+    if (timeFrom === "deleteContentBackward") {
+        if (timeFrom.value.length === 3) {
+            timeFrom.value = timeFrom.value.slice(0,2);
         }
      }
+     */
 
 
 
@@ -520,7 +521,6 @@ addEventSubmit.addEventListener("click", () => {
     }
         eventsArr.push(...JSON.parse(localStorage.getItem("events")));
     }
-
 
 
 
