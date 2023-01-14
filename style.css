@@ -70,8 +70,9 @@ nav ul li a:hover{
 
 .calendar {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction:row;
+    align-items:flex-start;
+    justify-content: center;
 }
 
 .weekdays {
@@ -169,32 +170,58 @@ nav ul li a:hover{
 }
 
 
-
-
-
-
 .table{
     background-color: #ecf5f2;
     border: 1px solid rgb(105, 156, 154);
     height: 78vh;
-    width:50%;
-    margin-left: 25%;
     display:flexbox;
+    width: 55%;
+    margin-left: 90px;
 }
 
 
+.container-left{
+    height: 60vh;
+    flex-direction: column;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-top: 10px;
+}
+
+.task_container{
+    display: flex;
+    padding: 10px;
+    flex-direction:column;
+    margin-top: 20px;
+}
+
+.task_container .task_name{
+    padding: 10px;
+    margin: 5px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task_name.selected{
+    box-shadow: 0 0 0 3px rgb(58, 198, 48) inset;
+}
+
+#deselect{
+    background-color: #06394a;
+    color: white;
+}
 
 /* Select Date */
 
 .goto-today {
-    
     height: 30px;
     display: flex;
     gap: 5px;
     padding: 5px 5px;
     color: #395B64;
     bottom: 45px;
-    justify-content: space-between ;
+    justify-content: space-between;
 }
 
 .goto-today .goto {

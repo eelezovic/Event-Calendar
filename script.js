@@ -11,6 +11,20 @@ const eventDate = document.querySelector(".event-date");
 const eventsContainer = document.querySelector(".events");
 const addEventSubmitButton = document.querySelector(".add-event-btn");
 
+//Adding Tasks 
+const breakTaskEl = document.getElementById("break");
+const gymTaskEl = document.getElementById("gym");
+const studyTaskEl = document.getElementById("study");
+const tvTaskEl = document.getElementById("tv");
+const friendsTaskEl = document.getElementById("friends");
+const workTaskEl = document.getElementById("work");
+const deselectBtn = document.getElementById("deselect");
+const taskContainerEl = document.querySelector(".task_container");
+const monthDaysContainerEl = document.querySelector(".table");
+
+
+
+
 let currentDate = new Date();
 let activeDay;
 let currentMonth = currentDate.getMonth();
@@ -175,7 +189,6 @@ todayBtn.addEventListener("click", () => {
      currentYear = currentDate.getFullYear();
      initCalendar();
 });
-
 
 
 dateInput.addEventListener("input", (e) => {
@@ -406,14 +419,14 @@ addEventSubmitButton.addEventListener("click", () => {
         alert("Invalid Time Format");
     }
 
-    /*If backspace pressed
-    if (timeFrom === "deleteContentBackward") {
-        if (timeFrom.value.length === 3) {
-            timeFrom.value = timeFrom.value.slice(0,2);
-        }
-     }
-     */
-
+//Remove anything else but numbers
+addEventFrom.value = addEventFrom.value.replace(/[^0-9:]/g, '');
+if (
+  addEventFrom.value.length === 2 &&
+  e.inputType !== 'deleteContentBackward'
+) {
+  addEventFrom.value += ':';
+}
 
 
 
@@ -520,10 +533,80 @@ addEventSubmitButton.addEventListener("click", () => {
         return;
     }
         eventsArr.push(...JSON.parse(localStorage.getItem("events")));
+    };
+
+//Select Task
+let selectedColor, active;
+
+taskContainerEl.addEventListener("click", selectTask);
+monthDaysContainerEl .addEventListener("click", setColors);
+
+
+//Task on Click
+function selectTask(e){
+    resetTasks(); 
+
+    taskColor = e.target.style.backgroundColor;
+
+    switch(e.target.id) {
+        case "break":
+            activeTask(breakTaskEl, taskColor);
+            icon = '<i class="fas fa-couch></i>'
+            break
+        case "gym":
+            activeTask(gymTaskEl, taskColor);
+            icon = '<i class="fas fa-dumbbell></i>'
+            break
+        case "study":
+            activeTask(studyTaskEl, taskColor);
+            icon = '<i class="fas fa-book></i>'
+            break
+        case "tv":
+            activeTask(tvTaskEl, taskColor);
+            icon = '<i class="fas fa-tv></i>'
+            break
+        case "friends":
+            activeTask(friendsTaskEl, taskColor);
+            icon = '<i class="fas fa-users></i>'
+            break
+        case "work":
+            activeTask(workTaskEl, taskColor);
+            icon = '<i class="fas fa-briefcase></i>'
+            break
+
     }
+}
+
+//Set Colours for schedule
+function setColors(e) {
+    if(e.target.classList.contains("day") && active === true) {
+        e.target.style.backgroundColor = selectedColor;
+        e.target.innerHTML = icon; //Promjeni kasnije (izbiris kako bi se vidjeli brojevi)
+    }
+}
 
 
+//Select Task
+function activeTask(task, color) {
+    task.classList.toggle("selected");
 
+    if(task.classList.contains("selected")) {
+        active = true;
+        selectedColor = color;
+        return selectedColor;
+    } else {
+        active = false;
+    }
+}
+
+//Reset Task
+function resetTasks(){
+    const allTasks = document.querySelectorAll(".task_name");
+
+    allTasks.forEach((item) => {
+        item.className = "task_name";
+    })
+}
 
 
 
