@@ -213,6 +213,67 @@ nav ul li a:hover{
     color: white;
 }
 
+/* Reset Button */
+.deleteBtn{
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    background-color: white;
+    border: solid 2px black;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.deleteBtn:hover{
+    background-color: rgb(213, 203, 203);
+}
+
+/* Pop Up */
+.pop-up_containter{
+    position: absolute;
+    top: 0; 
+    left: 0;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-up{
+    width: 300px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #80c0dc;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 20px;
+
+}
+
+.btn_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn_answer{
+    margin: 0 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 /* Select Date */
 
 .goto-today {

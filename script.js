@@ -21,6 +21,11 @@ const workTaskEl = document.getElementById("work");
 const deselectBtn = document.getElementById("deselect");
 const taskContainerEl = document.querySelector(".task_container");
 const monthDaysContainerEl = document.querySelector(".table");
+const resetBtn = document.querySelector('.deleteBtn');
+const popUp = document.querySelector('.pop-up_container');
+const noBtn = document.getElementById("btn_no");
+const yesBtn = document.getElementById("btn_yes");
+
 
 
 
