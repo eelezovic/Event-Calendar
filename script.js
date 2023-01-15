@@ -540,6 +540,7 @@ let selectedColor, active;
 
 taskContainerEl.addEventListener("click", selectTask);
 monthDaysContainerEl .addEventListener("click", setColors);
+deselectBtn.addEventListener("click", resetTasks);
 
 
 //Task on Click
@@ -551,27 +552,27 @@ function selectTask(e){
     switch(e.target.id) {
         case "break":
             activeTask(breakTaskEl, taskColor);
-            icon = '<i class="fas fa-couch></i>'
+            icon = '<i class="fas fa-couch"></i>'
             break
         case "gym":
             activeTask(gymTaskEl, taskColor);
-            icon = '<i class="fas fa-dumbbell></i>'
+            icon = '<i class="fas fa-dumbbell"></i>'
             break
         case "study":
             activeTask(studyTaskEl, taskColor);
-            icon = '<i class="fas fa-book></i>'
+            icon = '<i class="fas fa-book"></i>'
             break
         case "tv":
             activeTask(tvTaskEl, taskColor);
-            icon = '<i class="fas fa-tv></i>'
+            icon = '<i class="fas fa-tv"></i>'
             break
         case "friends":
             activeTask(friendsTaskEl, taskColor);
-            icon = '<i class="fas fa-users></i>'
+            icon = '<i class="fas fa-users"></i>'
             break
         case "work":
             activeTask(workTaskEl, taskColor);
-            icon = '<i class="fas fa-briefcase></i>'
+            icon = '<i class="fas fa-briefcase"></i>'
             break
 
     }
@@ -581,7 +582,7 @@ function selectTask(e){
 function setColors(e) {
     if(e.target.classList.contains("day") && active === true) {
         e.target.style.backgroundColor = selectedColor;
-        e.target.innerHTML = icon; //Promjeni kasnije (izbiris kako bi se vidjeli brojevi)
+        e.target.innerHTML = icon; 
     }
 }
 

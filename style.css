@@ -201,6 +201,7 @@ nav ul li a:hover{
     margin: 5px 5px;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
 }
 
 .task_name.selected{
