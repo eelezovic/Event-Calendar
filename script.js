@@ -12,9 +12,9 @@ const eventsContainer = document.querySelector(".events");
 const addEventSubmitButton = document.querySelector(".add-event-btn");
 
 //Adding Tasks 
-const breakTaskEl = document.getElementById("break");
-const gymTaskEl = document.getElementById("gym");
-const studyTaskEl = document.getElementById("study");
+const dayIconTaskEl = document.getElementById("day-icon");
+const eveningIconTaskEl= document.getElementById("evening-icon");
+const homeIconTaskEl = document.getElementById("home-icon");
 const tvTaskEl = document.getElementById("tv");
 const friendsTaskEl = document.getElementById("friends");
 const workTaskEl = document.getElementById("work");
@@ -546,6 +546,11 @@ let selectedColor, active;
 taskContainerEl.addEventListener("click", selectTask);
 monthDaysContainerEl .addEventListener("click", setColors);
 deselectBtn.addEventListener("click", resetTasks);
+resetBtn.addEventListener("click", openPopup);
+noBtn.addEventListener("click", ClosePopup);
+yesBtn.addEventListener("click", deleteTasks);
+
+
 
 
 //Task on Click
@@ -555,17 +560,17 @@ function selectTask(e){
     taskColor = e.target.style.backgroundColor;
 
     switch(e.target.id) {
-        case "break":
-            activeTask(breakTaskEl, taskColor);
-            icon = '<i class="fas fa-couch"></i>'
+        case "day-icon":
+            activeTask(dayIconTaskEl, taskColor);
+            icon = '<i class="fa-regular fa-sun"></i>'
             break
-        case "gym":
-            activeTask(gymTaskEl, taskColor);
-            icon = '<i class="fas fa-dumbbell"></i>'
+        case "evening-icon":
+            activeTask(eveningIconTaskEl, taskColor);
+            icon = '<i class="fa-solid fa-cloud-moon"></i>'
             break
-        case "study":
-            activeTask(studyTaskEl, taskColor);
-            icon = '<i class="fas fa-book"></i>'
+        case "home-icon":
+            activeTask(homeIconTaskEl, taskColor);
+            icon = '<i class="fa-regular fa-house-blank"></i>'
             break
         case "tv":
             activeTask(tvTaskEl, taskColor);
@@ -593,7 +598,7 @@ function setColors(e) {
 
 
 //Select Task
-function activeTask(task, color) {
+function activeTask(task,color) {
     task.classList.toggle("selected");
 
     if(task.classList.contains("selected")) {
@@ -614,7 +619,27 @@ function resetTasks(){
     })
 }
 
+//Delete Tasks
+function deleteTasks(){
+    const tasks = document.querySelectorAll(".day");
+    
+    tasks.forEach((item) => {
+        item.innerHTML = '';
+        item.style.backgroundColor = "white";
+    })
 
+    ClosePopup();
+}
+
+// Open pop-up
+function openPopup(){
+    popUp.style.display = "flex";
+}
+
+// Close pop-up
+function ClosePopup(){
+    popUp.style.display = "none";
+}
 
 
 
