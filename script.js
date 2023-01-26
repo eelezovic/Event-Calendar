@@ -14,10 +14,10 @@ const addEventSubmitButton = document.querySelector(".add-event-btn");
 //Adding Tasks 
 const dayIconTaskEl = document.getElementById("day-icon");
 const eveningIconTaskEl= document.getElementById("evening-icon");
-const homeIconTaskEl = document.getElementById("home-icon");
-const tvTaskEl = document.getElementById("tv");
-const friendsTaskEl = document.getElementById("friends");
-const workTaskEl = document.getElementById("work");
+const payDayIconTaskEl = document.getElementById("dollar-icon");
+const onCallIconTaskEl= document.getElementById("oncall-icon");
+const sickTaskEl = document.getElementById("sick-icon");
+const vacationTaskEl = document.getElementById("vacation-icon");
 const deselectBtn = document.getElementById("deselect");
 const taskContainerEl = document.querySelector(".task_container");
 const monthDaysContainerEl = document.querySelector(".table");
@@ -102,7 +102,6 @@ function initCalendar () {
 let days = "";
 
 //Show previous month days
-
    for ( let x = day; x > 0; x--) {
     days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
    }
@@ -121,6 +120,7 @@ let days = "";
             //if event found
             event = true;
         }
+
      });
 
      //if day is today add class today
@@ -552,7 +552,7 @@ yesBtn.addEventListener("click", deleteTasks);
 
 
 
-
+day
 //Task on Click
 function selectTask(e){
     resetTasks(); 
@@ -568,21 +568,21 @@ function selectTask(e){
             activeTask(eveningIconTaskEl, taskColor);
             icon = '<i class="fa-solid fa-cloud-moon"></i>'
             break
-        case "home-icon":
-            activeTask(homeIconTaskEl, taskColor);
-            icon = '<i class="fa-regular fa-house-blank"></i>'
+        case "dollar-icon":
+            activeTask(payDayIconTaskEl , taskColor);
+            icon = '<i class="fa-light fa-dollar-sign"></i>'
             break
-        case "tv":
-            activeTask(tvTaskEl, taskColor);
-            icon = '<i class="fas fa-tv"></i>'
+        case "oncall-icon":
+            activeTask(onCallIconTaskEl, taskColor);
+            icon = '<i class="fa-solid fa-phone"></i>'
             break
-        case "friends":
-            activeTask(friendsTaskEl, taskColor);
-            icon = '<i class="fas fa-users"></i>'
+        case "sick-icon":
+            activeTask(sickTaskEl, taskColor);
+            icon = '<i class="fa-solid fa-head-side-cough"></i>'
             break
-        case "work":
-            activeTask(workTaskEl, taskColor);
-            icon = '<i class="fas fa-briefcase"></i>'
+        case "vacation-icon":
+            activeTask(vacationTaskEl, taskColor);
+            icon = '<i class="fa-solid fa-martini-glass-citrus"></i>'
             break
 
     }
@@ -624,12 +624,15 @@ function deleteTasks(){
     const tasks = document.querySelectorAll(".day");
     
     tasks.forEach((item) => {
-        item.innerHTML = '';
-        item.style.backgroundColor = "white";
-    })
+        item.innerHTML = "";
+        item.style.backgroundColor = "";
+
+    }) 
 
     ClosePopup();
 }
+
+
 
 // Open pop-up
 function openPopup(){

@@ -15,6 +15,7 @@
 ul{list-style-type: none;}
 body{font-family: 'Source Sans Pro', sans-serif;
 }
+
 nav{
     display: flex;
     justify-content:space-between;
@@ -22,7 +23,7 @@ nav{
     line-height: 65px;
     padding:0px 100px;
     position:relative;
-    background-color: #395B64;
+    background-color: #c8e6f3;
 }
 nav .logo{
     display: flex;
@@ -31,7 +32,7 @@ nav .logo{
     font-size: 2.3rem;
     font-weight: bold;
     letter-spacing: 1.5px;
-    color: rgb(253, 243, 100);
+    color: rgb(255, 248, 148);
 }
 
 nav ul li{ 
@@ -54,11 +55,12 @@ nav ul li a:hover{
     width:100%;
     justify-content:space-around;
     text-align: center;
-    background-color:#395B64;
+    background: rgb(170,217,237);
+    background: linear-gradient(90deg, rgba(170,217,237,1) 0%, rgba(196,228,241,1) 50%, rgba(169,216,236,1) 100%);
     font-size: 0.8rem;
-    color:white;
-    height: 7vh;
-    padding-top: 20px;
+    color: #3686c9;
+    height: 5vh;
+    padding-top: 5px;
 }
 
 .header-date {
@@ -73,6 +75,13 @@ nav ul li a:hover{
     flex-direction:row;
     align-items:flex-start;
     justify-content: center;
+}
+
+.background-image {
+    background-image: url('landscape.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .weekdays {
@@ -110,7 +119,7 @@ nav ul li a:hover{
     width: 12.5%;
     height: 10vh;
     margin: 5px 5px;
-    padding-left: 3px;
+    padding-left: 4px;
     display: inline-block;
     align-items: center;
     justify-content: center;
@@ -172,7 +181,7 @@ nav ul li a:hover{
 
 .table{
     background-color: #ecf5f2;
-    border: 1px solid rgb(105, 156, 154);
+    border: 1px solid #86acd6;
     height: 78vh;
     display:flexbox;
     width: 55%;
@@ -350,13 +359,13 @@ nav ul li a:hover{
 .today-date .event-day {
     font-size: 2rem;
     font-weight: 500;
-    color: rgb(21, 119, 158);
+    color: #905dd8;
 }
 
 .today-date .event-date {
     font-size: 1.3rem;
     font-weight: 400;
-    color:#3c4545; 
+    color: #5e27aa; 
     margin-top: 10px;
 }
 
@@ -422,7 +431,6 @@ nav ul li a:hover{
 }
 
 .events ::after {
-    content:"✓";
     position: absolute;
     top: 40%;
     right: 0;
@@ -609,9 +617,24 @@ nav ul li a:hover{
 }
 
 
+day-container{
+    color:rgb(90, 6, 115);
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+    font-size: 1rem;
+}
 
-
-
+p{
+    color: white;
+    background-color: #3686c9;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.7rem;
+    height: 45px;
+    padding-top: 35px;
+}
 
 
 
