@@ -33,6 +33,8 @@ nav .logo{
     font-weight: bold;
     letter-spacing: 1.5px;
     color: rgb(255, 248, 148);
+    text-shadow: -1px 0 rgb(0, 0, 135), 0 1px grey, 1px 0 grey, 0 -1px grey;
+    font-family: sans; 
 }
 
 nav ul li{ 
@@ -55,8 +57,6 @@ nav ul li a:hover{
     width:100%;
     justify-content:space-around;
     text-align: center;
-    background: rgb(170,217,237);
-    background: linear-gradient(90deg, rgba(170,217,237,1) 0%, rgba(196,228,241,1) 50%, rgba(169,216,236,1) 100%);
     font-size: 0.8rem;
     color: #3686c9;
     height: 5vh;
@@ -90,7 +90,9 @@ nav ul li a:hover{
     flex-direction: row;
     justify-content: space-around;  
     align-items: center;
-    width: 100% ;
+    color: rgb(54, 54, 134);
+    padding: 2px;
+    font-size: 1.3rem;
 }
 
 .weekdays div {
@@ -105,11 +107,10 @@ nav ul li a:hover{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 5px;
-    padding: 0;
+    padding: 2px;
     font-size: 1rem;
     font-weight: 500;
-    margin-top: 20px;
+    margin-top: 5px;
     transition: all 600ms;
 
 }
@@ -158,7 +159,7 @@ nav ul li a:hover{
 .days .active {
     position: relative;
     font-size: 1.3rem;
-    color: rgb(16, 187, 28);
+    color: rgb(78, 173, 85);
     background-color:#dbefec ;
 }
 
@@ -184,8 +185,9 @@ nav ul li a:hover{
     border: 1px solid #86acd6;
     height: 78vh;
     display:flexbox;
-    width: 55%;
-    margin-left: 90px;
+    width: 65%;
+    margin-left: 40px;
+    
 }
 
 
@@ -335,35 +337,34 @@ nav ul li a:hover{
 }
 
 .container-right {
-    position: relative;
+    position:relative;
     width: 18%;
     min-height: 100%;
-    padding: 20px 0;
-    display:flexbox;
+    padding: 2px 0;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .container-right .today-date {
     height: 30px;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    justify-content: space-between;
+    align-items:center;
+    justify-content: space-around;
     padding: 0 10px;
-    padding-left: 30px;
-    margin-top: 5px;
     text-transform: capitalize;
 }
 
 .today-date .event-day {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 500;
-    color: #905dd8;
+    color: #5e27aa;
+    font-weight: 500;
+    font-family: sans; 
 }
 
 .today-date .event-date {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: #5e27aa; 
     margin-top: 10px;
@@ -372,36 +373,30 @@ nav ul li a:hover{
 .events { 
     width: 100%;
     height: 100%;
-    max-height: 600px;
+    max-height: 200px;
     overflow-x: hidden;
     overflow-y: auto;
     display: flex;
-    flex-direction:column;
-    padding-top: 4px;
-    background: #80c0dc;
+    background: #a5bddf;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
 .events .event {
     position: relative;
-    width: 95%;
-    min-height: 70px;
+    min-height: 100px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     gap: 5px;
-    padding: 0 10px;
     padding-left: 40px;
     color: rgb(255, 255, 255);
     cursor: pointer;
     background-color: linear-gradient(90deg, #3f4458, transparent);
 }
 
-.events .event:nth-child(even) {
-    background: transparent;
-}
-
 .events .event:hover {
-    background: linear-gradient(90deg, #7d70ab, transparent );
+    background: linear-gradient(90deg, #99a7cc, transparent );
 }
 
 .events .event .title {
@@ -414,37 +409,20 @@ nav ul li a:hover{
     font-size: 1.5rem;
     font-weight: 400;
     margin-left: 20px;
-    color: rgb(90, 6, 115);
+    color: #0076c5;
 }
 
 .events .event:hover .title i,
 .events .event:hover .event-time {
-    color: white;
+    color: rgba(218, 218, 218, 0.479);
 }
 
 .events .event .event-time {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 400;
-    color: rgb(73, 70, 70);
+    color: rgb(33, 63, 105);
     margin-left: 15px;
     pointer-events: none;
-}
-
-.events ::after {
-    position: absolute;
-    top: 40%;
-    right: 0;
-    font-size: 3rem;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.3;
-    color: #688e9e;
-    transform: translateY(-50%);
-}
-
-.events .event:hover::after {
-    display: flex;
 }
 
 .events .no-event {
@@ -455,14 +433,14 @@ nav ul li a:hover{
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 500;
-    color: #878787;
-    margin: auto;
+    color: #e41919;
+    
 }
 
 .add-event-wrapper {
-    position: absolute;
-    top: 150px;
-    left: 25%;
+    position: relative;
+   top: 80px;
+    left: 5%;
     width: 100%;
     max-height: 0;
     overflow: hidden;
@@ -521,7 +499,7 @@ nav ul li a:hover{
     height: 100%;
     outline: none;
     border: none;
-    border-bottom: 2px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
     padding: 0 10px;
     font-size: 1rem;
     font-weight: 400;
@@ -533,7 +511,7 @@ nav ul li a:hover{
 }
 
 .add-event-body .add-event-input input:focus {
-    border-color: rgb(240, 165, 205);
+    border-color: rgb(148, 80, 181);
 }
 
 .add-event-body .add-event-input input:focus::placeholder {
@@ -580,7 +558,7 @@ nav ul li a:hover{
     opacity: 0.6;
     background-color: transparent;
     cursor: pointer;
-    margin-left:auto;
+    margin-left: 10px;
 }
 .add-event:hover {
     opacity: 1;
@@ -594,13 +572,14 @@ nav ul li a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin-left: auto;
+    font-weight: bold;
     
 }
 
 .active {
-    background-color: #b7d9dc
+    background-color: #b7d9dc;
 }
 
 .date-selector {
@@ -627,7 +606,7 @@ day-container{
 }
 
 p{
-    color: white;
+    color: whitesmoke;
     background-color: #3686c9;
     justify-content: center;
     text-align: center;

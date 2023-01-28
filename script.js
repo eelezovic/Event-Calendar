@@ -243,7 +243,7 @@ const addEventBtn = document.querySelector(".add-event"),
   addEventFrom = document.querySelector(".event-time-from"),
   addEventTo = document.querySelector(".event-time-to");
 
-addEventBtn.addEventListener("click", () => {
+  addEventBtn.addEventListener("click", () => {
     addEventContainer.classList.toggle("active");
 });
 addEventCloseBtn.addEventListener("click", () => {
@@ -350,7 +350,7 @@ function addListener() {
         });
     });
 }
-
+close
 //Display active day events and date at top right corner
 function getActiveDay(headerDateEl) {
     const day = new Date( currentYear, currentMonth, headerDateEl);
