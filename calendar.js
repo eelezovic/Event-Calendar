@@ -11,25 +11,6 @@ const eventDate = document.querySelector(".event-date");
 const eventsContainer = document.querySelector(".events");
 const addEventSubmitButton = document.querySelector(".add-event-btn");
 
-//Adding Tasks 
-const dayIconTaskEl = document.getElementById("day-icon");
-const eveningIconTaskEl= document.getElementById("evening-icon");
-const payDayIconTaskEl = document.getElementById("dollar-icon");
-const onCallIconTaskEl= document.getElementById("oncall-icon");
-const sickTaskEl = document.getElementById("sick-icon");
-const vacationTaskEl = document.getElementById("vacation-icon");
-const deselectBtn = document.getElementById("deselect");
-const taskContainerEl = document.querySelector(".task_container");
-const monthDaysContainerEl = document.querySelector(".table");
-const resetBtn = document.querySelector('.deleteBtn');
-const popUp = document.querySelector('.pop-up_container');
-const noBtn = document.getElementById("btn_no");
-const yesBtn = document.getElementById("btn_yes");
-
-
-
-
-
 let currentDate = new Date();
 let activeDay;
 let currentMonth = currentDate.getMonth();
@@ -237,11 +218,12 @@ function gotoDate() {
 
 
 const addEventBtn = document.querySelector(".add-event"),
-  addEventContainer = document.querySelector(".add-event-wrapper"),
-  addEventCloseBtn = document.querySelector(".close"),
-  addEventTitle = document.querySelector(".event-name"),
-  addEventFrom = document.querySelector(".event-time-from"),
-  addEventTo = document.querySelector(".event-time-to");
+      addEventContainer = document.querySelector(".add-event-wrapper"),
+      addEventCloseBtn = document.querySelector(".close"),
+      addEventTitle = document.querySelector(".event-name"),
+      addEventFrom = document.querySelector(".event-time-from"),
+      addEventTo = document.querySelector(".event-time-to");
+      
 
   addEventBtn.addEventListener("click", () => {
     addEventContainer.classList.toggle("active");
@@ -350,7 +332,7 @@ function addListener() {
         });
     });
 }
-close
+
 //Display active day events and date at top right corner
 function getActiveDay(headerDateEl) {
     const day = new Date( currentYear, currentMonth, headerDateEl);
@@ -539,126 +521,3 @@ if (
     }
         eventsArr.push(...JSON.parse(localStorage.getItem("events")));
     };
-
-//Select Task
-let selectedColor, active;
-
-taskContainerEl.addEventListener("click", selectTask);
-monthDaysContainerEl .addEventListener("click", setColors);
-deselectBtn.addEventListener("click", resetTasks);
-resetBtn.addEventListener("click", openPopup);
-noBtn.addEventListener("click", ClosePopup);
-yesBtn.addEventListener("click", deleteTasks);
-
-
-
-day
-//Task on Click
-function selectTask(e){
-    resetTasks(); 
-
-    taskColor = e.target.style.backgroundColor;
-
-    switch(e.target.id) {
-        case "day-icon":
-            activeTask(dayIconTaskEl, taskColor);
-            icon = '<i class="fa-regular fa-sun"></i>'
-            break
-        case "evening-icon":
-            activeTask(eveningIconTaskEl, taskColor);
-            icon = '<i class="fa-solid fa-cloud-moon"></i>'
-            break
-        case "dollar-icon":
-            activeTask(payDayIconTaskEl , taskColor);
-            icon = '<i class="fa-light fa-dollar-sign"></i>'
-            break
-        case "oncall-icon":
-            activeTask(onCallIconTaskEl, taskColor);
-            icon = '<i class="fa-solid fa-phone"></i>'
-            break
-        case "sick-icon":
-            activeTask(sickTaskEl, taskColor);
-            icon = '<i class="fa-solid fa-head-side-cough"></i>'
-            break
-        case "vacation-icon":
-            activeTask(vacationTaskEl, taskColor);
-            icon = '<i class="fa-solid fa-martini-glass-citrus"></i>'
-            break
-
-    }
-}
-
-//Set Colours for schedule
-function setColors(e) {
-    if(e.target.classList.contains("day") && active === true) {
-        e.target.style.backgroundColor = selectedColor;
-        e.target.innerHTML = icon; 
-    }
-}
-
-
-//Select Task
-function activeTask(task,color) {
-    task.classList.toggle("selected");
-
-    if(task.classList.contains("selected")) {
-        active = true;
-        selectedColor = color;
-        return selectedColor;
-    } else {
-        active = false;
-    }
-}
-
-//Reset Task
-function resetTasks(){
-    const allTasks = document.querySelectorAll(".task_name");
-
-    allTasks.forEach((item) => {
-        item.className = "task_name";
-    })
-}
-
-//Delete Tasks
-function deleteTasks(){
-    const tasks = document.querySelectorAll(".day");
-    
-    tasks.forEach((item) => {
-        item.innerHTML = "";
-        item.style.backgroundColor = "";
-
-    }) 
-
-    ClosePopup();
-}
-
-
-
-// Open pop-up
-function openPopup(){
-    popUp.style.display = "flex";
-}
-
-// Close pop-up
-function ClosePopup(){
-    popUp.style.display = "none";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
