@@ -1,9 +1,9 @@
 //calendar
-const headerDateEl = document.querySelector(".header-date");
+const headerMontandYearDocumentElement = document.querySelector(".header-date");
 const calendarDaysDocumentElement = document.querySelector(".days");
-const nextMonthDocumentElement = document.querySelector('.next');
-const previousMonthDocumentElement = document.querySelector('.prev');
-const todayBtn = document.querySelector(".today-btn");
+const goToNextMonthDocumentElement = document.querySelector('.next');
+const goToPreviousMonthDocumentElement = document.querySelector('.prev');
+const displayTodaysDateButton = document.querySelector(".today-btn");
 const gotoBtn = document.querySelector(".goto-btn");
 const dateInput = document.querySelector(".date-input");
 const eventDay = document.querySelector(".event-day");
@@ -77,7 +77,7 @@ function initCalendar () {
     const day = firstDayOfMonth.getDay();
     const nextDays = 7 - lastDayOfMonth.getDay() - 1 ;
 
-    headerDateEl.innerHTML = MONTHS[currentMonth] + " , " + currentYear;
+    headerMontandYearDocumentElement.innerHTML = MONTHS[currentMonth] + " , " + currentYear;
 
 //adding days on DOM
 let days = "";
@@ -86,6 +86,7 @@ let days = "";
    for ( let x = day; x > 0; x--) {
     days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
    }
+
 
 //Current month days
    for ( let i = 1; i <= lastDate; i++) {
@@ -103,6 +104,15 @@ let days = "";
         }
 
      });
+    
+/* 
+    dayElements.forEach(function(day) {
+       let newDiv = document.createElement("div");
+        newDiv.classList.add("dayCalendar");
+        newDiv.innerHTML = day.innerHTML;
+        day.appendChild(newDiv);
+    });
+*/
 
      //if day is today add class today
     if (
@@ -136,8 +146,9 @@ let days = "";
     days += `<div class="day next-date" >${j}</div>`;
 
    }
-
    calendarDaysDocumentElement.innerHTML = days;
+
+   let dayElements = document.querySelectorAll(".day");
 
    //adding listener after calendar initialized
    addListener();
@@ -164,12 +175,12 @@ const prevMonth = () => {
 }
 
 //Add eventListener on Next and Prev button
-previousMonthDocumentElement.addEventListener("click", prevMonth);
-nextMonthDocumentElement.addEventListener("click", nextMonth);
+goToPreviousMonthDocumentElement.addEventListener("click", prevMonth);
+goToNextMonthDocumentElement.addEventListener("click", nextMonth);
 
 //Adding Today's button functionality
 
-todayBtn.addEventListener("click", () => {
+displayTodaysDateButton.addEventListener("click", () => {
      currentDate = new Date();
      currentMonth = currentDate.getMonth();
      currentYear = currentDate.getFullYear();
@@ -334,20 +345,20 @@ function addListener() {
 }
 
 //Display active day events and date at top right corner
-function getActiveDay(headerDateEl) {
-    const day = new Date( currentYear, currentMonth, headerDateEl);
+function getActiveDay(headerMontandYearDocumentElement) {
+    const day = new Date( currentYear, currentMonth, headerMontandYearDocumentElement);
     const dayName = day.toString().split(" ")[0];
     eventDay.innerHTML = dayName;
-      eventDate.innerHTML = headerDateEl + " " + MONTHS[currentMonth] + " " + currentYear;
+      eventDate.innerHTML = headerMontandYearDocumentElement + " " + MONTHS[currentMonth] + " " + currentYear;
 }
 
 //Function to show events od that day
-function updateEvents(headerDateEl) {
+function updateEvents(headerMontandYearDocumentElement) {
     let events = "";
     eventsArr.forEach((event) => {
         //getting events of active day only
         if (
-            headerDateEl === event.day &&
+            headerMontandYearDocumentElement === event.day &&
             currentMonth + 1 === event.currentMonth &&
             currentYear === event.currentYear
         ) {
@@ -370,7 +381,7 @@ function updateEvents(headerDateEl) {
 //if nothing found
     if (events === "") {
     events= `<div class ="no-event">
-             <h3>No Events</h3>
+             <h5>There are no events today</h5>
              </div>`;
     }
 
@@ -378,7 +389,7 @@ function updateEvents(headerDateEl) {
     //Save events when update event called
     saveEvents();
 }
-addEventBtn
+
 //Function to add events 
 addEventSubmitButton.addEventListener("click", () => {
     const eventTitle = addEventTitle.value;
@@ -393,6 +404,7 @@ addEventSubmitButton.addEventListener("click", () => {
 
     const timeFromArr = eventTimeFrom.split(":");
     const timeToArr = eventTimeTo.split(":");
+
 
     if (
         timeFromArr.length !== 2 ||
@@ -414,6 +426,7 @@ if (
 ) {
   addEventFrom.value += ':';
 }
+
 
 
 

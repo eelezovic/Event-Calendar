@@ -65,6 +65,18 @@ function selectTask(e){
     }
 }
 
+document.getElementById("deselect").addEventListener("click", function() {
+    document.querySelectorAll(".selected").forEach(function(selected) {
+      selected.classList.remove("selected");
+    });
+    selectedTasks = [];
+    document.getElementById("dayCalendar").innerHTML = "";
+  });
+  
+  
+  
+  
+
 //Set Colours for schedule
 function setColors(e) {
     if(e.target.classList.contains("day") && active === true) {
