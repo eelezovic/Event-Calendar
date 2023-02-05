@@ -195,102 +195,6 @@ nav ul li a:hover{
     
 }
 
-.select-task{
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #614426;
-    background-color: #c1a27b;
-    display: flex;
-    justify-content: center;
-    top: 15px;
-    border: 1.5px solid #77532f;
-    padding: 5px;
-    width: 10%;
-}
-
-.add-task{
-    display: flex;
-    justify-content: center;
-    padding: 2px 5px;
-    background-color: transparent;
-    cursor: pointer;
-    color: #ffd9b3;
-    top: 10px;
-    background-color: #a37241;
-    border-radius: 5px;
-    margin-left: 15px;
-}
-
-.add-task:hover{
-    color: #fff;
-    background-color: transparent;
-}
-
-.container-left{
-    position:relative;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background-color: #bc946c;
-    top:60px;
-}
-
-.close {
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 5px;
-    color: whitesmoke;
-}
-
-.close:hover {
-    color: #77532f;
-}
-
-.task_container{
-    display: flex;
-    padding: 10px;
-    flex-direction:column;
-    margin-left: 0;
-}
-
-.task_container .task_name{
-    padding: 10px;
-    margin: 5px 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    box-shadow: 4px 4px 2px #77532f;
-}
-
-.task_name.selected{
-    box-shadow: 0 0 0 2px rgb(28, 28, 28) inset;
-}
-
-#deselect{
-    background-color: #06394a;
-    color: white;
-}
-
-/* Reset Button */
-.resetTasksButton{
-    padding: 8px;
-    margin-top: 20px;
-    background-color: white;
-    border: solid 2px black;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
-    outline: none;
-    box-shadow: 4px 4px 2px #77532f;
-}
-
-.resetTasksButton:hover{
-    background-color: rgb(213, 203, 203);
-}
-
 /* Pop Up */
 .pop-up_container{
     position: absolute;
@@ -440,7 +344,7 @@ nav ul li a:hover{
     justify-content: center;
     flex-direction: column;
     gap: 5px;
-    padding-left: 40px;
+    padding-left: 20px;
     color: white;
     cursor: pointer;
     background-color: #a5bddf;
