@@ -1,15 +1,15 @@
 //calendar
-const headerMontandYearDocumentElement = document.querySelector(".header-date");
+const headerMonthandYearDocumentElement = document.querySelector(".header-date");
 const calendarDaysDocumentElement = document.querySelector(".days");
 const goToNextMonthDocumentElement = document.querySelector('.next');
 const goToPreviousMonthDocumentElement = document.querySelector('.prev');
 const displayTodaysDateButton = document.querySelector(".today-btn");
-const gotoBtn = document.querySelector(".goto-btn");
-const dateInput = document.querySelector(".date-input");
-const eventDay = document.querySelector(".event-day");
-const eventDate = document.querySelector(".event-date");
-const eventsContainer = document.querySelector(".events");
-const addEventSubmitButton = document.querySelector(".add-event-btn");
+const goToIputtedDateButton = document.querySelector(".goto-btn");
+const dateInputPlaceholder = document.querySelector(".date-input");
+const eventIsOn_DayOfTheWeek = document.querySelector(".event-day");
+const eventIsOn_ThisDate = document.querySelector(".event-date");
+const containerDisplayingEvents = document.querySelector(".events");
+const submitButtonForTheNewlyCreatedEvent = document.querySelector(".add-event-btn");
 
 let currentDate = new Date();
 let activeDay;
@@ -77,7 +77,7 @@ function initCalendar () {
     const day = firstDayOfMonth.getDay();
     const nextDays = 7 - lastDayOfMonth.getDay() - 1 ;
 
-    headerMontandYearDocumentElement.innerHTML = MONTHS[currentMonth] + " , " + currentYear;
+    headerMonthandYearDocumentElement.innerHTML = MONTHS[currentMonth] + " , " + currentYear;
 
 //adding days on DOM
 let days = "";
@@ -188,32 +188,32 @@ displayTodaysDateButton.addEventListener("click", () => {
 });
 
 
-dateInput.addEventListener("input", (e) => {
+dateInputPlaceholder.addEventListener("input", (e) => {
     //allow only numbers, remove anything else
-    dateInput.value = dateInput.value.replace(/[^0-9/]/g, "");
-    if (dateInput.value.length === 2) {
+    dateInputPlaceholder.value = dateInputPlaceholder.value.replace(/[^0-9/]/g, "");
+    if (dateInputPlaceholder.value.length === 2) {
         //add a slash if two numbers enetered
-        dateInput.value += "/";
+        dateInputPlaceholder.value += "/";
     }
 
     //No more than 7 characters allowed
-    if(dateInput.value.length > 7) {
-        dateInput.value = dateInput.value.slice(0, 7)
+    if(dateInputPlaceholder.value.length > 7) {
+        dateInputPlaceholder.value = dateInputPlaceholder.value.slice(0, 7)
     }
     //If backspace pressed 
     if (e.inputType === "deleteContentBackward") {
-        if (dateInput.value.length === 3 ) {
-            dateInput.value = dateInput.value.slice(0, 2);
+        if (dateInputPlaceholder.value.length === 3 ) {
+            dateInputPlaceholder.value = dateInputPlaceholder.value.slice(0, 2);
         }
     }
 
 });
 
 //Function to go to entered date
-gotoBtn.addEventListener("click", gotoDate);
+goToIputtedDateButton.addEventListener("click", gotoDate);
 
 function gotoDate() {
-    const dateArr = dateInput.value.split("/");
+    const dateArr = dateInputPlaceholder.value.split("/");
     console.log(dateArr)
     if(dateArr.length === 2) {
         if(dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4) {
@@ -345,20 +345,20 @@ function addListener() {
 }
 
 //Display active day events and date at top right corner
-function getActiveDay(headerMontandYearDocumentElement) {
-    const day = new Date( currentYear, currentMonth, headerMontandYearDocumentElement);
+function getActiveDay(headerMonthandYearDocumentElement) {
+    const day = new Date( currentYear, currentMonth, headerMonthandYearDocumentElement);
     const dayName = day.toString().split(" ")[0];
-    eventDay.innerHTML = dayName;
-      eventDate.innerHTML = headerMontandYearDocumentElement + " " + MONTHS[currentMonth] + " " + currentYear;
+    eventIsOn_DayOfTheWeek.innerHTML = dayName;
+    eventIsOn_ThisDate.innerHTML = headerMonthandYearDocumentElement + " " + MONTHS[currentMonth] + " " + currentYear;
 }
 
 //Function to show events od that day
-function updateEvents(headerMontandYearDocumentElement) {
+function updateEvents(headerMonthandYearDocumentElement) {
     let events = "";
     eventsArr.forEach((event) => {
         //getting events of active day only
         if (
-            headerMontandYearDocumentElement === event.day &&
+            headerMonthandYearDocumentElement === event.day &&
             currentMonth + 1 === event.currentMonth &&
             currentYear === event.currentYear
         ) {
@@ -385,13 +385,13 @@ function updateEvents(headerMontandYearDocumentElement) {
              </div>`;
     }
 
-    eventsContainer.innerHTML = events;
+    containerDisplayingEvents.innerHTML = events;
     //Save events when update event called
     saveEvents();
 }
 
 //Function to add events 
-addEventSubmitButton.addEventListener("click", () => {
+submitButtonForTheNewlyCreatedEvent.addEventListener("click", () => {
     const eventTitle = addEventTitle.value;
     const eventTimeFrom = addEventFrom.value;
     const eventTimeTo = addEventTo.value;
@@ -496,7 +496,7 @@ if (
 
    //Creating a function to remove events on click
 
-   eventsContainer.addEventListener("click", (e) => {
+   containerDisplayingEvents.addEventListener("click", (e) => {
     if (e.target.classList.contains("event")) {
         const eventTitle = e.target.children[0].children[1].innerHTML;
         //Getting the title of event, than search in array by title and delete
