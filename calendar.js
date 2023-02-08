@@ -75,7 +75,7 @@ function initCalendar () {
     const prevDays = lastDayOfPrevMonth.getDate();
     const lastDate = lastDayOfMonth.getDate();
     const day = firstDayOfMonth.getDay();
-    const nextDays = 7 - lastDayOfMonth.getDay() - 1 ;
+    const nextDays = 6 - lastDayOfMonth.getDay();
 
     headerMonthandYearDocumentElement.innerHTML = MONTHS[currentMonth] + " , " + currentYear;
 
@@ -89,13 +89,13 @@ let days = "";
 
 
 //Current month days
-   for ( let i = 1; i <= lastDate; i++) {
+   for ( let currentDay = 1; currentDay <= lastDate; currentDay++) {
 
      //check if event present on current day
      let event = false;
      eventsArr.forEach((eventObj) => {
         if (
-            eventObj.day === i &&
+            eventObj.day === currentDay &&
             eventObj.currentMonth === currentMonth + 1 &&
             eventObj.currentYear === currentYear
         ) {
@@ -116,28 +116,28 @@ let days = "";
 
      //if day is today add class today
     if (
-        i === new Date().getDate() &&
+        currentDay === new Date().getDate() &&
         currentYear === new Date().getFullYear() &&
         currentMonth === new Date().getMonth()
     ) {
-        activeDay = i;
+        activeDay = currentDay;
         getActiveDay(activeDay);
         updateEvents(activeDay);
 
 
         //if event found add event class
         if (event) {
-        days += `<div class="day today event">${i}</div>`;
+        days += `<div class="day today event">${currentDay}</div>`;
     } else {
-        days += `<div class="day today">${i}</div>`;
+        days += `<div class="day today">${currentDay}</div>`;
      }
     } 
     //add remaining as it is
     else {
         if (event) {
-            days += `<div class="day event">${i}</div>`;
+            days += `<div class="day event">${currentDay}</div>`;
         } else {
-            days += `<div class="day">${i}</div>`;
+            days += `<div class="day">${currentDay}</div>`;
          }
         } 
     }
@@ -384,8 +384,8 @@ function updateEvents(headerMonthandYearDocumentElement) {
              <h5>There are no events today</h5>
              </div>`;
     }
+     containerDisplayingEvents.innerHTML = events;
 
-    containerDisplayingEvents.innerHTML = events;
     //Save events when update event called
     saveEvents();
 }
@@ -440,6 +440,7 @@ if (
 
     let eventAdded = false;
 
+ //checking if eventsarr not empty
     if (eventsArr.length > 0) {
         //Checking if current day has already any event, then add to that
         eventsArr.forEach((item) => {
@@ -451,7 +452,7 @@ if (
                 item.events.push(newEvent);
                 eventAdded = true;
             }
-        })
+        }) 
     }
 
     //If event array empty or current day has no event create new
@@ -475,7 +476,7 @@ if (
 
     updateEvents(activeDay);
 
-
+//adding event class to newly added day 
     const activeDayElement = document.querySelector(".day.active");
     if (!activeDayElement.classList.contains("event")) {
         activeDayElement.classList.add("event");
@@ -512,9 +513,15 @@ if (
                     }
                 });
 
-                //Id no event remaining on that day, remove complete day
+                //If no event remaining on that day, remove complete day
                 if (event.events.length === 0) {
                     eventsArr.splice(eventsArr.indexOf(event), 1);
+
+                //After removing complete day, remove active class of that day
+                const activeDayElement = document.querySelector(".day.active");
+                if (activeDayElement.classList.contains("event")) {
+                    activeDayElement.classList.remove("event");
+                }
                 }
             }
         });
@@ -529,7 +536,7 @@ if (
    }
 
   function getEvents() {
-    if (localStorage.getItem("events" === null)) {
+    if (localStorage.getItem("events" === true)) {
         return;
     }
         eventsArr.push(...JSON.parse(localStorage.getItem("events")));
