@@ -532,5 +532,5 @@ if (
     if (localStorage.getItem("events" === true)) {
         return;
     }
-  eventsArr.push(...JSON.parse(localStorage.getItem("events")));
-  };
+        eventsArr.push(...JSON.parse(localStorage.getItem("events")));
+    };
