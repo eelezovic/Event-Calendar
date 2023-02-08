@@ -13,7 +13,7 @@
 }
 .calendar-days
 ul{list-style-type: none;}
-body{font-family: 'Source Sans Pro', sans-serif;
+body{font-family:Times, serif;
 }
 
 nav{
@@ -29,13 +29,12 @@ nav{
 nav .logo{
     display: flex;
     justify-content: flex-start;
-    position: ;
-    font-size: 2.3rem;
+    font-size: 2.2rem;
     font-weight: bold;
     letter-spacing: 1.5px;
     color: rgb(255, 248, 148);
-    text-shadow: -1px 0 rgb(0, 0, 135), 0 1px grey, 1px 0 grey, 0 -1px grey;
-    font-family: sans; 
+    text-shadow: -1.5px 0 rgb(0, 0, 135), 0 1px grey, 1px 0 grey, 0 -1.5px grey;
+    font-family:  Chalkduster, fantasy; 
 }
 
 nav ul li{ 
@@ -93,6 +92,7 @@ nav ul li a:hover{
     color: #614426;
     padding: 2px;
     font-size: 1.3rem;
+    font-family: Monaco, monospace;
 }
 
 .weekdays div {
@@ -180,11 +180,6 @@ nav ul li a:hover{
     position: relative;
 } 
 
-.active .event {
-    padding-bottom: 10px;
-}
-
-
 .table{
     background-color: #fbeee4;
     border: 1px solid #77532f;
@@ -192,7 +187,6 @@ nav ul li a:hover{
     display:flexbox;
     width: 65%;
     margin-left: 40px;
-    
 }
 
 /* Pop Up */
@@ -239,7 +233,6 @@ nav ul li a:hover{
 
 
 /* Select Date */
-
 .goto-today {
     height: 30px;
     display: flex;
@@ -535,6 +528,10 @@ nav ul li a:hover{
     background-color: #bc946c;
 }
 
+.active .event {
+    padding-bottom: 10px;
+}
+
 .date-selector {
     display: flex;
     align-items: center;
@@ -548,16 +545,6 @@ nav ul li a:hover{
     color: grey;
 }
 
-
-day-container{
-    color:rgb(90, 6, 115);
-    display: flex;
-    justify-content: center;
-    padding: 5px;
-    margin: 5px;
-    font-size: 1rem;
-}
-
 p{
     color: #77532f;
     background-color: #ddbc90;
@@ -567,14 +554,6 @@ p{
     height: 30px;
     padding: 25px;
     
-}
-
-.dayCalendar {
-    color: red;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-
 }
 
 
