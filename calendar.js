@@ -531,6 +531,4 @@ if (
   function getEvents() {
     if (localStorage.getItem("events" === true)) {
         return;
-    }
-
-    };
+    }};
