@@ -1,5 +1,67 @@
-*{ 
+/*
+* {
     margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+.wrapper > * {
+    padding: 10px;
+    flex: 1 100%;
+    border-color: red;
+}
+nav {
+    display: flex;
+    justify-content:space-between;
+    height: 8vh;
+    line-height: 65px;
+    padding:0px 100px;
+    position:relative;
+    background-image: linear-gradient(to bottom right, #a3805c , #ac8c63);
+}
+
+nav .logo {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: rgb(255, 248, 148);
+    text-shadow: -1.5px 0 rgb(0, 0, 135), 0 1px grey, 1px 0 grey, 0 -1.5px grey;
+    font-family:  Chalkduster, fantasy; 
+}
+
+nav ul li { 
+    display: inline-block;
+    list-style: none;
+}
+nav ul li a {
+    text-decoration: none;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 0px 32px;
+    color: red;
+}
+nav ul li a:hover{
+    color: #2C3333;
+}
+
+footer p{
+    display: flex;
+    width: 100%;
+    color: #77532f;
+    background-color: #ddbc90;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.7rem;
+    height: 30px;
+    padding: 25px;
+    
 }
 
 @media (max-width: 768px) {
@@ -8,11 +70,15 @@
         align-items:center;
     }
     .logo {
-        font-size: 1rem;
+        font-size: 1rem;b 
     }
 }
-.calendar-days
-ul{list-style-type: none;}
+*/
+
+*{ 
+    margin: 0;
+}
+
 body{font-family:Times, serif;
 }
 
@@ -112,7 +178,6 @@ nav ul li a:hover{
     font-weight: 500;
     margin-top: 5px;
     transition: all 600ms;
-
 }
 
 .days .day {
@@ -188,8 +253,7 @@ nav ul li a:hover{
     width: 65%;
     margin-left: 40px;
 }
-
-/* Pop Up */
+ /*Pop Up*/
 .pop-up_container{
     position: absolute;
     top: 0; 
@@ -232,7 +296,7 @@ nav ul li a:hover{
 }
 
 
-/* Select Date */
+ /*Select Date */
 .goto-today {
     height: 30px;
     display: flex;
@@ -555,7 +619,6 @@ p{
     padding: 25px;
     
 }
-
 
 
 
