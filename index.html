@@ -15,80 +15,78 @@
 </head>
 
 <body>
-  <div class="wrapper">
+<div class="calendar-wrapper">
     <nav> 
         <div class="logo">MyAgenda</div>
           <ul>
             <li><a href="about.html"><u>About</u></a></li>
           </ul>
     </nav>
-<div class="background-image">
-<div class="month">
-    <i class="fa fa-angle-left prev"></i>
-    <div class="header-date"></div>
-    <i class="fa fa-angle-right next"></i>
-</div>
-<div class="calendar">
-  <div class="table">
-    <div class="weekdays">
-      <div>Sun</div>
-      <div>Mon</div>
-      <div>Tue</div>
-      <div>Wed</div>
-      <div>Thu</div>
-      <div>Fri</div>
-      <div>Sat</div>
+    <div class="month">
+      <i class="fa fa-angle-left prev"></i>
+      <div class="header-date"></div>
+      <i class="fa fa-angle-right next"></i>
     </div>
-<div class="days">
-<!--will add days in JS-->
-</div>
-<div class="goto-today">
-  <div class="goto">
-    <input type="text" placeholder="mm/yyyy" class="date-input">
-    <button class="goto-btn">Go</button>
-  </div>
-  <button class="today-btn">Today</button>
-  <div class="add-event-text">add event</div>
-  <button class="add-event">
-    <i class="fas fa-plus"></i>
-  </button>
-</div>
-</div>
-    <div class="container-right">
       <div class="today-date">
-          <div class="event-day"></div>
-          <div class="event-date"></div>
-        </div>
-        <div class="events">
-<! Added Events through JS >
-        </div>
-        <div class="add-event-wrapper">
-          <div class="add-event-header">
-            <div class="title">Add Event</div>
-            <i class="fas fa-times close"></i>
-          </div>
-          <div class="add-event-body">
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Name" class="event-name"/>
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Time From" class="event-time-from"/>
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Time To" class="event-time-to"/>
-            </div>
-         </div>
-         <div class="add-event-footer">
-          <button class="add-event-btn">add event</button>
-         </div>
+        <div class="event-day"></div>
+        <div class="event-date"></div>
       </div>
+    <div class="calendar">
+      <div class="calendar-table">
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+    <div class="days">
+    <!--will add days in JS-->
     </div>
-</div>
-</div>
-<footer>
-  <p> Webpage design &#169; 2023 by Emir Elezovic at Get Coding (St.John's, NL, Canada)</p>
-</footer>
-<script src="calendar.js"></script>
+    <div class="goto-today">
+      <div class="goto">
+        <input type="text" placeholder="mm/yyyy" class="date-input">
+        <button class="goto-btn">Go</button>
+      </div>
+      <button class="today-btn">Today</button>
+      <div class="add-event-text">add event</div>
+      <button class="add-event">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    </div>
+    <div class="container-right">
+      <div class="add-event-wrapper">
+        <div class="add-event-header">
+          <div class="title">Add Event</div>
+          <i class="fas fa-times close"></i>
+        </div>
+        <div class="add-event-body">
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Name" class="event-name"/>
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Time From" class="event-time-from"/>
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Time To" class="event-time-to"/>
+          </div>
+        </div>
+       <div class="add-event-footer">
+        <button class="add-event-btn">add event</button>
+       </div>
+      </div>
   </div>
+</div>
+<div class="event-container">
+   <div class="events">
+     <! Added Events through JS >
+   </div>
+</div>
+
+<script src="calendar.js"></script>
+</div>
 </body>
 </html>

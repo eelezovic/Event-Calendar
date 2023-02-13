@@ -381,7 +381,7 @@ function updateEvents(headerMonthandYearDocumentElement) {
 //if nothing found
     if (events === "") {
     events= `<div class ="no-event">
-             <h5>There are no events today</h5>
+             <h5>Sorry, no events to selected date</h5>
              </div>`;
     }
      containerDisplayingEvents.innerHTML = events;

@@ -1,33 +1,28 @@
-/*
-* {
+
+
+*{
     margin: 0;
-    padding: 0;
+    padding:0;
+    box-sizing: border-box;
 }
 
-.wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    text-align: center;
+body{
+    font-family:Times, serif;
 }
 
-.wrapper > * {
-    padding: 10px;
-    flex: 1 100%;
-    border-color: red;
-}
-nav {
+
+nav{
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
+    align-items: center;
     height: 8vh;
     line-height: 65px;
     padding:0px 100px;
     position:relative;
-    background-image: linear-gradient(to bottom right, #a3805c , #ac8c63);
+    background-image: linear-gradient(to bottom right, #84a160, #d2ebb3);
 }
 
-nav .logo {
-    display: flex;
-    justify-content: flex-start;
+nav .logo{
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 1.5px;
@@ -41,181 +36,42 @@ nav ul li {
     list-style: none;
 }
 nav ul li a {
-    text-decoration: none;
-    font-size: 15px;
-    text-transform: uppercase;
-    padding: 0px 32px;
-    color: red;
-}
-nav ul li a:hover{
-    color: #2C3333;
-}
-
-footer p{
-    display: flex;
-    width: 100%;
-    color: #77532f;
-    background-color: #ddbc90;
-    justify-content: center;
-    text-align: center;
-    font-size: 0.7rem;
-    height: 30px;
-    padding: 25px;
-    
-}
-
-@media (max-width: 768px) {
-    nav, nav ul {
-        flex-direction: column;
-        align-items:center;
-    }
-    .logo {
-        font-size: 1rem;b 
-    }
-}
-*/
-
-*{ 
-    margin: 0;
-}
-
-body{font-family:Times, serif;
-}
-
-nav{
-    display: flex;
-    justify-content:space-between;
-    height: 8vh;
-    line-height: 65px;
-    padding:0px 100px;
-    position:relative;
-    background-image: linear-gradient(to bottom right, #a3805c , #ac8c63);
-}
-
-nav .logo{
-    display: flex;
-    justify-content: flex-start;
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    color: rgb(255, 248, 148);
-    text-shadow: -1.5px 0 rgb(0, 0, 135), 0 1px grey, 1px 0 grey, 0 -1.5px grey;
-    font-family:  Chalkduster, fantasy; 
-}
-
-nav ul li{ 
-    display: inline-block;
-    list-style: none;
-}
-nav ul li a{
-    color: #fff;
+    color: #3C6255;
     text-decoration: none;
     font-size: 15px;
     text-transform: uppercase;
     padding: 0px 32px;
 }
-nav ul li a:hover{
+nav ul li a:hover {
     color: #2C3333;
 }
 
 .month {
     display: flex;
     width:100%;
-    text-align: center;
     font-size: 0.8rem;
-    color: #614426;
-    height: 7vh;
-    padding-top: 5px;
+    color: #3C6255;
+    background: #FFF6BD;
+    height: 11vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+   
 }
 
 .header-date {
-    display: flex ;
-    text-align:start;
-    justify-content:flex-start;
     font-size: 2.5rem;
-}
-
-.calendar {
     display: flex;
-    flex-direction:row;
-    align-items:flex-start;
-    justify-content: center;
-}
-
-.background-image {
-    background-image: url('color.jpeg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.weekdays {
-    background-color: #c1a27b;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;  
-    align-items: center;
-    color: #614426;
-    padding: 2px;
-    font-size: 1.3rem;
-    font-family: Monaco, monospace;
-}
-
-.weekdays div {
-    width: 16%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.days {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 2px;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-top: 5px;
-    transition: all 600ms;
-}
-
-.days .day {
-    border-radius: 8%;
-    width: 12.5%;
-    height: 10vh;
-    margin: 5px 5px;
-    padding-left: 4px;
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: grey;
-    background-color: white;
-    border: 1px solid rgb(179, 179, 179);
-}
-
-.day:not(.prev-date, next-date):hover {
-    color: rgb(2, 96, 101);
-}
-
-.days .prev-date,
-.days .next-date {
-    color: #b3b3b3;
 }
 
 .next {
     font-size: 1.5rem;
     cursor: pointer;
-    display: flex;
-    margin: auto;
 }
 
 .prev {
     font-size: 1.5rem;
     cursor: pointer;
-    display: flex;
-    margin: auto;
 }
 
 .next:hover {
@@ -226,11 +82,107 @@ nav ul li a:hover{
     color: #2C3333 ;
 }
 
+.today-date {
+    height: 30px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    padding-bottom: 20px;
+    text-transform: capitalize;
+    background: #FFF6BD;
+    color: #87a265;
+}
+
+.today-date .event-day {
+    font-size: 2rem;
+    font-weight: 500;
+    font-weight: 500;
+    padding-right: 20px;
+}
+
+.today-date .event-date {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.calendar {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom , #FFF6BD, #ffee7d);
+}
+
+.calendar-table{
+    display: flex;
+    background-color: #FFFFE8;
+    border: 1px solid white;
+    height: 60vh;
+    width: 40rem;
+    display: grid; 
+    margin-bottom: 20px;
+    margin-right: 5px;
+    margin-left: 2%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.weekdays {
+    background-color: #A6BB8D;
+    border-bottom: 1px solid #576464;
+    box-shadow: inset 0 -3px 0 0 #8fa278;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;  
+    align-items: center;
+    color: #ffffff;
+    padding: 0 20px;
+    font-size: 1.3rem;
+    font-family: Monaco, monospace;
+}
+
+.weekdays div {
+    width: 11.28%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0.3rem 0.5rem rgb(0,0,0 0.5);
+}
+
+
+.days {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    font-size: 1.2rem;
+    margin: 20px 0;
+    font-weight: 500;
+    transition: all 600ms;
+
+}
+
+.days .day {
+    width: 13.28%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #3C6255;
+}
+
+.day:not(.prev-date, next-date):hover {
+    color: rgb(2, 96, 101);
+}
+
 .days .active {
     position: relative;
     font-size: 1.3rem;
-    color: rgb(78, 173, 85);
-    background-color:#dbefec ;
+    color: #D9F8C4;
+    background-color:#FAAB78;
 }
 
 
@@ -244,57 +196,6 @@ nav ul li a:hover{
     background-color: #e4dce9;
     position: relative;
 } 
-
-.table{
-    background-color: #fbeee4;
-    border: 1px solid #77532f;
-    height: 78vh;
-    display:flexbox;
-    width: 65%;
-    margin-left: 40px;
-}
- /*Pop Up*/
-.pop-up_container{
-    position: absolute;
-    top: 0; 
-    left: 0;
-    z-index: 99;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0, 0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.pop-up-message{
-    width: 300px;
-    height: 130px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #80c0dc;
-    padding: 15px;
-    text-align: center;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-.button_container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.button_answer{
-    margin: 0 20px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 
  /*Select Date */
 .goto-today {
@@ -347,79 +248,49 @@ nav ul li a:hover{
 }
 
 .container-right {
-    position:relative;
-    width: 18%;
-    min-height: 100%;
+    position:absolute;
+    z-index: 99;
+    display: flex;
+    gap: 5px;
     padding: 2px 0;
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
-.container-right .today-date {
-    height: 30px;
+.event-container {
     display: flex;
-    align-items:center;
-    justify-content: space-around;
-    padding: 0 10px;
-    text-transform: capitalize;
-}
-
-.today-date .event-day {
-    font-size: 2.5rem;
-    font-weight: 500;
-    color: #5e27aa;
-    font-weight: 500;
-    font-family: sans; 
-}
-
-.today-date .event-date {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #5e27aa; 
-    margin-top: 10px;
+    justify-content: center;
+    background: #ffee7d;
 }
 
 .events { 
-    width: 100%;
+   width: auto;
     height: 100%;
-    max-height: 200px;
+    max-height: 80px;
     overflow-x: hidden;
     overflow-y: auto;
     display: flex;
-    background: #a5bddf;
-    margin-top: 20px;
-    margin-left: 10px;
+    justify-content:center;
+    align-items: center;
+    background: #FFD495;
     border-radius: 7px;
-    border: 1px solid #92714d;
+    border: 1px solid #8fa278;
+    margin-top: 10px;
 }
 
 .events .event {
-    position: relative;
-    min-height: 100px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     gap: 5px;
-    padding-left: 20px;
     color: white;
     cursor: pointer;
-    background-color: #a5bddf;
+    background-color: #86C8BC;
 }
 
-
-
-.events .event .title {
-    display: flex;
-    align-items: center;
-    pointer-events: none;
-}
 
 .events .event .title .event-title {
     font-size: 1.5rem;
     font-weight: 400;
     margin-left: 20px;
-    color: #0076c5;
+    color: #00425A;
 }
 
 .events .event:hover .title i,
@@ -428,11 +299,10 @@ nav ul li a:hover{
 }
 
 .events .event .event-time {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
-    color: rgb(33, 63, 105);
+    color: #FFFFE8;
     margin-left: 15px;
-    pointer-events: none;
 }
 
 .events .no-event {
@@ -443,18 +313,18 @@ nav ul li a:hover{
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 500;
-    color: #e41919;
+    color: #e31919;
+    padding: 20px;
 }
 
 .add-event-wrapper {
-    position: relative;
-    top: 80px;
-    left: 5%;
+    display: flex;
     width: 100%;
     max-height: 0;
     overflow: hidden;
     border-radius: 5px;
-    box-shadow: 4px 4px 2px #77532f;
+    box-shadow: 0 12px 18px 0 rgba(0, 0, 0, 0.6), 0 14px 50px 0 rgba(0, 0, 0, 0.22);
+    margin: auto;
 }
 
 .add-event-wrapper.active {
@@ -463,12 +333,12 @@ nav ul li a:hover{
 
 .add-event-header {
     width: 90%;
-    height: 50px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-left: 15px;
-    color: #77532f;
+    color: #005874;
     border-bottom: 1px solid #f5f5f5;
 }
 
@@ -489,7 +359,7 @@ nav ul li a:hover{
 .add-event-body {
     display:flex;
     width: 100%;
-    height: 100%;
+    height: 30vh;
     flex-direction: column;
     gap: 5px;
     padding: 5px;
@@ -541,8 +411,8 @@ nav ul li a:hover{
     font-weight: 500;
     outline: none;
     border: none;
-    color: #fcf8f5;
-    background-color: #946637;
+    color: #68BDE1;
+    background-color: linear-gradient(135deg, #8d8dd4, #45ced4);
     border-radius: 5px;
     cursor: pointer;
     padding: 5px 10px;
@@ -563,7 +433,7 @@ nav ul li a:hover{
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    color:rgb(36, 10, 93);
+    color:rgb(255, 0, 0);
     border: 2px solid #878895;
     opacity: 0.6;
     background-color: transparent;
@@ -608,29 +478,3 @@ nav ul li a:hover{
     background-color: rgb(187, 228, 236);
     color: grey;
 }
-
-p{
-    color: #77532f;
-    background-color: #ddbc90;
-    justify-content: center;
-    text-align: center;
-    font-size: 0.7rem;
-    height: 30px;
-    padding: 25px;
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
