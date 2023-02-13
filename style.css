@@ -116,7 +116,7 @@ nav ul li a:hover {
     display: flex;
     background-color: #FFFFE8;
     border: 1px solid white;
-    height: 60vh;
+    height: 70vh;
     width: 40rem;
     display: grid; 
     margin-bottom: 20px;
@@ -136,7 +136,7 @@ nav ul li a:hover {
     justify-content: space-between;  
     align-items: center;
     color: #ffffff;
-    padding: 0 20px;
+    padding: 10px 30px;
     font-size: 1.3rem;
     font-family: Monaco, monospace;
 }
@@ -181,7 +181,7 @@ nav ul li a:hover {
 .days .active {
     position: relative;
     font-size: 1.3rem;
-    color: #D9F8C4;
+    color: white;
     background-color:#FAAB78;
 }
 
@@ -199,12 +199,12 @@ nav ul li a:hover {
 
  /*Select Date */
 .goto-today {
-    height: 30px;
+    height: 35px;
     display: flex;
     gap: 5px;
     padding: 5px 5px;
     color: #395B64;
-    bottom: 45px;
+    bottom: 40px;
     justify-content: space-between;
 }
 
@@ -234,6 +234,7 @@ nav ul li a:hover {
     background-color: transparent;
     cursor: pointer;
     color:#395B64;
+    justify-content: center;
 }
 
 .goto-today button:hover {
@@ -247,26 +248,15 @@ nav ul li a:hover {
     border-radius: 0;
 }
 
-.container-right {
-    position:absolute;
-    z-index: 99;
-    display: flex;
-    gap: 5px;
-    padding: 2px 0;
-    display:flex;
-    flex-direction: column;
-}
-
 .event-container {
     display: flex;
     justify-content: center;
-    background: #ffee7d;
+    background: #FFFFE8;
 }
 
 .events { 
    width: auto;
     height: 100%;
-    max-height: 80px;
     overflow-x: hidden;
     overflow-y: auto;
     display: flex;
@@ -275,16 +265,17 @@ nav ul li a:hover {
     background: #FFD495;
     border-radius: 7px;
     border: 1px solid #8fa278;
-    margin-top: 10px;
 }
 
 .events .event {
-    gap: 5px;
     color: white;
     cursor: pointer;
     background-color: #86C8BC;
 }
 
+.events .event .title {
+    pointer-events: none;
+}
 
 .events .event .title .event-title {
     font-size: 1.5rem;
@@ -299,10 +290,11 @@ nav ul li a:hover {
 }
 
 .events .event .event-time {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 400;
     color: #FFFFE8;
     margin-left: 15px;
+    pointer-events: none;
 }
 
 .events .no-event {
@@ -313,18 +305,30 @@ nav ul li a:hover {
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 500;
-    color: #e31919;
+    color: #e41919;
     padding: 20px;
 }
 
+.container-right {
+    position:absolute;
+    z-index: 99;
+    display: flex;
+    gap: 5px;
+    display:flex;
+    margin-top: 70px;
+}
+
+
 .add-event-wrapper {
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    width: 300px;
     max-height: 0;
     overflow: hidden;
     border-radius: 5px;
-    box-shadow: 0 12px 18px 0 rgba(0, 0, 0, 0.6), 0 14px 50px 0 rgba(0, 0, 0, 0.22);
+    box-shadow: 4px 4px 2px #013c4e;
     margin: auto;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 .add-event-wrapper.active {
@@ -332,19 +336,20 @@ nav ul li a:hover {
 }
 
 .add-event-header {
-    width: 90%;
-    height: 40px;
+    width: 100%;
+    height: 60px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-left: 15px;
-    color: #005874;
+    color: #FFFBC1;
     border-bottom: 1px solid #f5f5f5;
 }
 
 .add-event-header .close {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
+    color: whitesmoke;
 }
 
 .add-event-header .close:hover {
@@ -359,7 +364,7 @@ nav ul li a:hover {
 .add-event-body {
     display:flex;
     width: 100%;
-    height: 30vh;
+    height: 100%;
     flex-direction: column;
     gap: 5px;
     padding: 5px;
@@ -375,7 +380,7 @@ nav ul li a:hover {
 }
 
 .add-event-body .add-event-input input {
-    width: 85%;
+    width: 100%;
     height: 100%;
     outline: none;
     border: none;
@@ -411,7 +416,7 @@ nav ul li a:hover {
     font-weight: 500;
     outline: none;
     border: none;
-    color: #68BDE1;
+    color: #25586e;
     background-color: linear-gradient(135deg, #8d8dd4, #45ced4);
     border-radius: 5px;
     cursor: pointer;
@@ -421,7 +426,7 @@ nav ul li a:hover {
 }
 
 .add-event-btn:hover {
-    color: #5b340d;
+    color: #FFFBC1;
     background-color: transparent;
 }
 
@@ -459,7 +464,8 @@ nav ul li a:hover {
 }
 
 .active {
-    background-color: #bc946c;
+    background-color: #86C8BC;
+
 }
 
 .active .event {

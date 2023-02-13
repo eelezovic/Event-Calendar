@@ -366,7 +366,7 @@ function updateEvents(headerMonthandYearDocumentElement) {
             event.events.forEach((event) => {
                 events += `<div class= "event">
                 <div class="title">
-                <i class="fa fa-square"></i>
+                <i class="fa-solid da-x"></i>
                   <h3 class="event-title">${event.title}</h3>
                 </div>
                 <div class="event-time">
