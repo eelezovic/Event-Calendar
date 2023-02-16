@@ -344,7 +344,7 @@ function addListener() {
     });
 }
 
-//Display active day events and date at top right corner
+//Display active day events and date at the top of the calendar
 function getActiveDay(headerMonthandYearDocumentElement) {
     const day = new Date( currentYear, currentMonth, headerMonthandYearDocumentElement);
     const dayName = day.toString().split(" ")[0];
@@ -366,11 +366,14 @@ function updateEvents(headerMonthandYearDocumentElement) {
             event.events.forEach((event) => {
                 events += `<div class= "event">
                 <div class="title">
-                <i class="fa-solid da-x"></i>
+                <div class="event-desc"><em>Event descri:</em>
+                <i class="fas fa-times close"></i>
+              </div>
                   <h3 class="event-title">${event.title}</h3>
                 </div>
                 <div class="event-time">
                   <span class="event-time">${event.time}</span>
+                </div>
                 </div>
             </div>`;
                 

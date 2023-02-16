@@ -1,17 +1,17 @@
 
 
-*{
+* {
     margin: 0;
     padding:0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family:Times, serif;
 }
 
 
-nav{
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +19,7 @@ nav{
     line-height: 65px;
     padding:0px 100px;
     position:relative;
-    background-image: linear-gradient(to bottom right, #84a160, #d2ebb3);
+    background-image: linear-gradient(to bottom right, #2c3864, #62adf0);
 }
 
 nav .logo{
@@ -36,27 +36,26 @@ nav ul li {
     list-style: none;
 }
 nav ul li a {
-    color: #3C6255;
+    color: #eeeff4;
     text-decoration: none;
     font-size: 15px;
     text-transform: uppercase;
     padding: 0px 32px;
 }
 nav ul li a:hover {
-    color: #2C3333;
+    color: #021034;
 }
 
 .month {
     display: flex;
     width:100%;
     font-size: 0.8rem;
-    color: #3C6255;
-    background: #FFF6BD;
+    color: #475169;
+    background:  #f3f3ed;
     height: 11vh;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-   
 }
 
 .header-date {
@@ -89,8 +88,8 @@ nav ul li a:hover {
     justify-content: center;
     padding-bottom: 20px;
     text-transform: capitalize;
-    background: #FFF6BD;
-    color: #87a265;
+    background:  #f3f3ed;
+    color: #677697;
 }
 
 .today-date .event-day {
@@ -109,7 +108,7 @@ nav ul li a:hover {
 .calendar {
     display: flex;
     justify-content: center;
-    background: linear-gradient(to bottom , #FFF6BD, #ffee7d);
+    background: linear-gradient(to bottom , #f3f3ed, #dfdac9);
 }
 
 .calendar-table{
@@ -119,16 +118,16 @@ nav ul li a:hover {
     height: 70vh;
     width: 40rem;
     display: grid; 
-    margin-bottom: 20px;
+    margin-bottom: 70px;
     margin-right: 5px;
     margin-left: 2%;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 .weekdays {
-    background-color: #A6BB8D;
-    border-bottom: 1px solid #576464;
-    box-shadow: inset 0 -3px 0 0 #8fa278;
+    background: linear-gradient(to bottom, #1d2645, #59a9ef);
+    border-bottom: 1px solid #99c4c4;
+    box-shadow: inset 0 -3px 0 0 #789da2;
     width: 100%;
     height: 100%;
     display: flex;
@@ -164,7 +163,7 @@ nav ul li a:hover {
 
 }
 
-.days .day {
+.day {
     width: 13.28%;
     height: 50px;
     display: flex;
@@ -174,8 +173,12 @@ nav ul li a:hover {
     color: #3C6255;
 }
 
-.day:not(.prev-date, next-date):hover {
-    color: rgb(2, 96, 101);
+.prev-date {
+    color: #a4c5c8;
+}
+
+.next-date {
+    color: #a4c5c8;
 }
 
 .days .active {
@@ -187,8 +190,8 @@ nav ul li a:hover {
 
 
 .days .today {
-    font-size: 1.2rem;
-    color:#06394a;
+    font-size: 1.4rem;
+    color:#031f29;
     background-color: #a6d9e9;
 }
 
@@ -260,17 +263,19 @@ nav ul li a:hover {
     overflow-x: hidden;
     overflow-y: auto;
     display: flex;
-    justify-content:center;
     align-items: center;
-    background: #FFD495;
+    background: #d3eafe;
     border-radius: 7px;
-    border: 1px solid #8fa278;
+    border: 1px solid #bccbaa;
 }
 
 .events .event {
     color: white;
     cursor: pointer;
-    background-color: #86C8BC;
+    background-color: #d3eafe;
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
 }
 
 .events .event .title {
@@ -278,23 +283,33 @@ nav ul li a:hover {
 }
 
 .events .event .title .event-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 400;
-    margin-left: 20px;
-    color: #00425A;
+    color:  rgb(47, 51, 94);
 }
 
-.events .event:hover .title i,
-.events .event:hover .event-time {
-    color: rgb(16, 31, 53);
+.events .event:hover .title i {
+    color: #373c4f;
+}
+
+.events .event .title i {
+    color: rgb(255, 255, 255);
+}
+
+.event-desc {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-size: 1.2rem;
 }
 
 .events .event .event-time {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
-    color: #FFFFE8;
-    margin-left: 15px;
+    color: #227793;
     pointer-events: none;
+    padding: 10px;
+    justify-content: center;
 }
 
 .events .no-event {
@@ -305,8 +320,8 @@ nav ul li a:hover {
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 500;
-    color: #e41919;
-    padding: 20px;
+    color: rgb(62, 66, 110);
+    padding: 5px;
 }
 
 .container-right {
@@ -342,7 +357,7 @@ nav ul li a:hover {
     align-items: center;
     justify-content: space-around;
     padding-left: 15px;
-    color: #FFFBC1;
+    color: whitesmoke;
     border-bottom: 1px solid #f5f5f5;
 }
 
@@ -426,7 +441,7 @@ nav ul li a:hover {
 }
 
 .add-event-btn:hover {
-    color: #FFFBC1;
+    color: #ffffff;
     background-color: transparent;
 }
 
@@ -464,7 +479,7 @@ nav ul li a:hover {
 }
 
 .active {
-    background-color: #86C8BC;
+    background-color: #a6c3cc;
 
 }
 
@@ -483,4 +498,14 @@ nav ul li a:hover {
 .today {
     background-color: rgb(187, 228, 236);
     color: grey;
+}
+
+.footer{
+    background: #2c3864;
+    color: #EAE7B1;
+    display: flex;
+    width: 100%;
+    height: 5vh;
+    justify-content: center;
+    align-items: center;
 }
