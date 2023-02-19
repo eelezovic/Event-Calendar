@@ -64,6 +64,8 @@ const eventsArr = [
 //set an empty array
 let eventsArr = [];
 
+//Calling get events
+getEvents();
 
 // Function to add days
 function initCalendar () {
@@ -386,6 +388,9 @@ function updateEvents(headerMonthandYearDocumentElement) {
              </div>`;
     }
      containerDisplayingEvents.innerHTML = events;
+
+    //Save events when update event called
+    saveEvents();
 }
 
 //Function to add events 
@@ -530,12 +535,10 @@ if (
 
    // Store events in local storage 
    function saveEvents() {
-    localStorage.setItem("events", JSON.stringify(eventsArr));
+    localStorage.setItem("events",JSON.stringify(eventsArr));
    }
 
   function getEvents() {
-    if (localStorage.getItem("events" === null)) {
-        return;
-    }
-        eventsArr.push(JSON.parse(localStorage.getItem("events")));
+    if (localStorage.getItem("events")) 
+        eventsArr.push(...JSON.parse(localStorage.getItem("events")));
     };

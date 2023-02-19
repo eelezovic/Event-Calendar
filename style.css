@@ -10,19 +10,19 @@ body {
     font-family:Times, serif;
 }
 
-
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     height: 8vh;
     line-height: 65px;
-    padding:0px 100px;
+    padding:0 5%;
     position:relative;
     background-image: linear-gradient(to bottom right, #2c3864, #62adf0);
 }
 
-nav .logo{
+nav .logo {
+    display: flex;
+    position: relative;
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 1.5px;
@@ -31,20 +31,6 @@ nav .logo{
     font-family:  Chalkduster, fantasy; 
 }
 
-nav ul li { 
-    display: inline-block;
-    list-style: none;
-}
-nav ul li a {
-    color: #eeeff4;
-    text-decoration: none;
-    font-size: 15px;
-    text-transform: uppercase;
-    padding: 0px 32px;
-}
-nav ul li a:hover {
-    color: #021034;
-}
 
 .month {
     display: flex;
@@ -119,8 +105,6 @@ nav ul li a:hover {
     width: 40rem;
     display: grid; 
     margin-bottom: 70px;
-    margin-right: 5px;
-    margin-left: 2%;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -255,10 +239,11 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     background: #FFFFE8;
+    margin-bottom: 10px;
 }
 
 .events { 
-   width: auto;
+    width: auto;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
