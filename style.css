@@ -1,9 +1,8 @@
 
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding:0;
-    box-sizing: border-box;
 }
 
 body {
@@ -11,76 +10,65 @@ body {
 }
 
 nav {
-    display: flex;
     align-items: center;
-    height: 8vh;
-    line-height: 65px;
-    padding:0 5%;
-    position:relative;
     background-image: linear-gradient(to bottom right, #2c3864, #62adf0);
+    display: flex;
+    height: 8vh;
+    position:relative;
+    padding:0 5%;
 }
 
 nav .logo {
-    display: flex;
-    position: relative;
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 1.5px;
     color: rgb(255, 248, 148);
-    text-shadow: -1.5px 0 rgb(0, 0, 135), 0 1px grey, 1px 0 grey, 0 -1.5px grey;
+    display: flex;
     font-family:  Chalkduster, fantasy; 
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    position: relative;
+    text-shadow: -1.5px 0 rgb(0, 0, 135), 0 1px grey, 1px 0 grey, 0 -1.5px grey;
 }
 
 
 .month {
-    display: flex;
-    width:100%;
-    font-size: 0.8rem;
-    color: #475169;
-    background:  #f3f3ed;
-    height: 11vh;
     align-items: center;
+    background:  #f3f3ed;
+    color: #475169;
+    display: flex;
+    font-size: 0.8rem;
+    height: 11vh;
     justify-content: center;
-    flex-direction: row;
+    width:100%;
 }
 
 .header-date {
-    font-size: 2.5rem;
     display: flex;
+    font-size: 2.5rem;
 }
 
 .next {
-    font-size: 1.5rem;
     cursor: pointer;
+    font-size: 1.5rem;
 }
 
 .prev {
-    font-size: 1.5rem;
     cursor: pointer;
-}
-
-.next:hover {
-    color: #2f99e9;
-}
-
-.prev:hover {
-    color: #2f99e9;
+    font-size: 1.5rem;
 }
 
 .today-date {
-    height: 30px;
-    display: flex;
     align-items:center;
+    background:  #f3f3ed;
+    color: #677697;
+    display: flex;
+    height: 30px;
     justify-content: center;
     padding-bottom: 20px;
     text-transform: capitalize;
-    background:  #f3f3ed;
-    color: #677697;
 }
 
 .today-date .event-day {
     font-size: 2rem;
-    font-weight: 500;
     font-weight: 500;
     padding-right: 20px;
 }
@@ -92,69 +80,67 @@ nav .logo {
 }
 
 .calendar {
+    background: linear-gradient(to bottom , #f3f3ed, #dfdac9);
     display: flex;
     justify-content: center;
-    background: linear-gradient(to bottom , #f3f3ed, #dfdac9);
 }
 
 .calendar-table{
-    display: flex;
     background-color: #FFFFE8;
     border: 1px solid white;
-    height: 70vh;
-    width: 40rem;
-    display: grid; 
-    margin-bottom: 70px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+    display: grid; 
+    height: 70vh;
+    margin: 0 10px 70px 10px;
+    width: 40rem;
 }
 
 .weekdays {
+    align-items: center;
     background: linear-gradient(to bottom, #1d2645, #59a9ef);
     border-bottom: 1px solid #99c4c4;
     box-shadow: inset 0 -3px 0 0 #789da2;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;  
-    align-items: center;
     color: #ffffff;
-    padding: 10px 30px;
+    display: flex;
     font-size: 1.3rem;
     font-family: Monaco, monospace;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-between;
+    padding: 10px 30px;
+    width: 100%;
 }
 
 .weekdays div {
-    width: 11.28%;
-    height: 100%;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 100%;
     justify-content: center;
     text-shadow: 0 0.3rem 0.5rem rgb(0,0,0 0.5);
+    width: 11.28%;
 }
 
 
 .days {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 20px;
-    font-size: 1.2rem;
-    margin: 20px 0;
     font-weight: 500;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 0 20px;
     transition: all 600ms;
-
+    width: 100%;
 }
 
 .day {
-    width: 13.28%;
-    height: 50px;
-    display: flex;
     align-items: center;
-    justify-content: center;
     cursor: pointer;
     color: #3C6255;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    width: 13.28%;
 }
 
 .prev-date {
@@ -166,17 +152,17 @@ nav .logo {
 }
 
 .days .active {
-    position: relative;
-    font-size: 1.3rem;
+    background-color:#7de859;
     color: white;
-    background-color:#FAAB78;
+    font-size: 1.3rem;
+    position: relative;
 }
 
 
 .days .today {
-    font-size: 1.4rem;
-    color:#031f29;
     background-color: #a6d9e9;
+    color:#ffffff;
+    font-size: 1.4rem;
 }
 
 .days .event {
@@ -186,42 +172,41 @@ nav .logo {
 
  /*Select Date */
 .goto-today {
-    height: 35px;
+    bottom: 40px;
+    color: #395B64;
     display: flex;
     gap: 5px;
-    padding: 5px 5px;
-    color: #395B64;
-    bottom: 40px;
+    height: 35px;
     justify-content: space-between;
+    padding: 5px 5px;
 }
 
 .goto-today .goto {
-    display: flex;
     align-items: center;
-    border-radius: 5px;
-    overflow: hidden;
     border: 1px solid #2C3333;
+    border-radius: 5px;
+    display: flex;
+    overflow: hidden;
 }
 
 .goto-today .goto input{
-    width: 100%;
-    height: 30px;
-    outline: none;
     border: none;
     border-radius: 5px;
-    padding: 0 20px;
     color: #2C3333;
-    border-radius: 5px;
+    height: 30px;
+    outline: none;
+    padding: 0 20px;
+    width: 100%;
 }
 
 .goto-today button {
-    padding: 3px 15px;
+    background-color: transparent;
     border: 1px solid #2C3333;
     border-radius: 5px;
-    background-color: transparent;
-    cursor: pointer;
     color:#395B64;
+    cursor: pointer;
     justify-content: center;
+    padding: 3px 15px;
 }
 
 .goto-today button:hover {
@@ -236,31 +221,31 @@ nav .logo {
 }
 
 .event-container {
+    background: #FFFFE8;
     display: flex;
     justify-content: center;
-    background: #FFFFE8;
     margin-bottom: 10px;
 }
 
-.events { 
-    width: auto;
+.events {
+    align-items: center;
+    background: #d3eafe;
+    border: 1px solid #bccbaa;
+    border-radius: 7px;
+    display: flex;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    display: flex;
-    align-items: center;
-    background: #d3eafe;
-    border-radius: 7px;
-    border: 1px solid #bccbaa;
+    width: auto;
 }
 
 .events .event {
+    background-color: #d3eafe;
     color: white;
     cursor: pointer;
-    background-color: #d3eafe;
     display: flex;
-    padding: 15px;
     flex-direction: column;
+    padding: 15px;
 }
 
 .events .event .title {
@@ -268,9 +253,9 @@ nav .logo {
 }
 
 .events .event .title .event-title {
+    color:  rgb(47, 51, 94);
     font-size: 1.6rem;
     font-weight: 400;
-    color:  rgb(47, 51, 94);
 }
 
 .events .event:hover .title i {
@@ -282,53 +267,51 @@ nav .logo {
 }
 
 .event-desc {
-    display: flex;
-    justify-content: space-between;
     color: grey;
-    font-size: 1.2rem;
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
 }
 
 .events .event .event-time {
+    color: #227793;
     font-size: 1rem;
     font-weight: 400;
-    color: #227793;
+    justify-content: center;
     pointer-events: none;
     padding: 10px;
-    justify-content: center;
 }
 
 .events .no-event {
-    width: 100%;
-    height: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    color: rgb(62, 66, 110);
+    display: flex;
     font-size: 1.5rem;
     font-weight: 500;
-    color: rgb(62, 66, 110);
+    height: 100%;
+    justify-content: center;
     padding: 5px;
+    width: 100%;
 }
 
 .container-right {
-    position:absolute;
-    z-index: 99;
     display: flex;
     gap: 5px;
-    display:flex;
     margin-top: 70px;
+    position:absolute;
+    z-index: 99;
 }
 
 
 .add-event-wrapper {
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
-    width: 300px;
+    margin: auto;
     max-height: 0;
     overflow: hidden;
-    border-radius: 5px;
-    box-shadow: 4px 4px 2px #013c4e;
-    margin: auto;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
 }
 
 .add-event-wrapper.active {
@@ -336,20 +319,20 @@ nav .logo {
 }
 
 .add-event-header {
-    width: 100%;
-    height: 60px;
-    display: flex;
     align-items: center;
+    border-bottom: 1px solid #f5f5f5;
+    color: #373c4f;
+    display: flex;
+    height: 60px;
     justify-content: space-around;
     padding-left: 15px;
-    color: whitesmoke;
-    border-bottom: 1px solid #f5f5f5;
+    width: 100%;
 }
 
 .add-event-header .close {
     font-size: 1.3rem;
-    cursor: pointer;
     color: whitesmoke;
+    cursor: pointer;
 }
 
 .add-event-header .close:hover {
@@ -363,32 +346,32 @@ nav .logo {
 
 .add-event-body {
     display:flex;
-    width: 100%;
-    height: 100%;
     flex-direction: column;
+    height: 100%;
     gap: 5px;
     padding: 5px;
+    width: 100%;
 }
 
 .add-event-body .add-event-input {
-    width: 100%;
-    height: 50px;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
+    display: flex;
     gap:3px;
+    height: 50px;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .add-event-body .add-event-input input {
-    width: 100%;
-    height: 100%;
-    outline: none;
-    border: none;
     border-bottom: 1px solid #f5f5f5;
-    padding: 0 10px;
+    border: none;
+    color: #373c4f;
     font-size: 1rem;
     font-weight: 400;
-    color: #373c4f;
+    height: 100%;
+    outline: none;
+    padding: 0 10px;
+    width: 100%;
 }
 
 .add-event-body .add-event-input input::placeholder {
@@ -404,46 +387,43 @@ nav .logo {
 }
 
 .add-event-footer {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
     padding: 10px;
 }
 
 .add-event-btn {
-    height:30px;
+    background-color: linear-gradient(135deg, #8d8dd4, #45ced4);
+    border: 1px solid #77532f;
+    border-radius: 5px;
+    color: #25586e;
+    cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
+    height:30px;
     outline: none;
-    border: none;
-    color: #25586e;
-    background-color: linear-gradient(135deg, #8d8dd4, #45ced4);
-    border-radius: 5px;
-    cursor: pointer;
     padding: 5px 10px;
-    border: 1px solid #77532f;
-
 }
 
 .add-event-btn:hover {
-    color: #ffffff;
     background-color: transparent;
+    color: #ffffff;
 }
 
 .add-event {
-    border-radius: 50%; 
-    width: 35px;
-    height: 30px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    color:rgb(255, 0, 0);
+    border-radius: 50%; 
     border: 2px solid #878895;
-    opacity: 0.6;
     background-color: transparent;
     cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    height: 30px;
+    justify-content: center;
     margin-left: 10px;
+    opacity: 0.6;
+    width: 35px;
 }
 .add-event:hover {
     opacity: 1;
@@ -454,13 +434,12 @@ nav .logo {
 }
 
 .add-event-text {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 1.3rem;
-    margin-left: auto;
+    display: flex;
+    font-size: 1.2rem;
     font-weight: bold;
-    
+    justify-content: center;
+    margin-left: auto;
 }
 
 .active {
@@ -473,9 +452,9 @@ nav .logo {
 }
 
 .date-selector {
-    display: flex;
     align-items: center;
     bottom: 100px;
+    display: flex;
     top: 30px;
     width: 15%;
 }
@@ -489,8 +468,9 @@ nav .logo {
     background: #2c3864;
     color: #EAE7B1;
     display: flex;
+    font-size: 0.6rem;
     width: 100%;
-    height: 5vh;
+    height: 4vh;
     justify-content: center;
     align-items: center;
 }
