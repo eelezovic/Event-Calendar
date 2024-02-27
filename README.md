@@ -31,3 +31,6 @@ This project was built using the following technologies:
 ## Contact
 
 If you have any questions or would like to get in touch, you can reach me at my elitedesire17@gmail.com. You can also visit my GitHub profile at https://github.com/eelezovic.
+
+![Screenshot 2024-02-26 at 21 02 48](https://github.com/eelezovic/Event-Calendar/assets/107818535/2cbdf369-6187-493d-b3ce-c2d4bb8bc69b)
+
